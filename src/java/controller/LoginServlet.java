@@ -40,13 +40,15 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("userid", log.get(1));
                 //getServletContext().getRequestDispatcher("Home.jsp").forward(request,response);
                 //send to home page
-                response.sendRedirect("Upload.html");
+                response.sendRedirect("Home.jsp");
             
             }
             else{
                 //getServletContext().getRequestDispatcher("register.html").forward(request,response);
                 //send back to login and register page
-                response.sendRedirect("LoginNRegister.html");
+                HttpSession session = request.getSession();
+                session.setAttribute("loginflag", "error");
+                response.sendRedirect("RegLog.jsp");
                 
             }
             

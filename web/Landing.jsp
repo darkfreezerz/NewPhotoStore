@@ -15,6 +15,7 @@
         <%
            HttpSession start = request.getSession();
            start.setAttribute("role", "");
+           start.setAttribute("loginflag", "");
            response.sendRedirect("Home.jsp");
         %>
     </body>
