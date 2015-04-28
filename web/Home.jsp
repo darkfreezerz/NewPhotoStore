@@ -60,7 +60,7 @@
                 <li class="cd-label">Information</li>
                 <li><a href="#0">My Information</a></li>
                 <li class="cd-label">Product</li>
-                <li><a href="#0">My Photo</a></li>
+                <li><a href="ManageProduct.jsp">My Photo</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
@@ -72,7 +72,7 @@
                 <li><a href="#0">My Information</a></li>
                 <li class="cd-label">Manage</li>
                 <li><a href="#0">Add Photo</a></li>
-                <li><a href="#0">Remove Photo</a></li>
+                <li><a href="ManageProduct.jsp">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
                 <li><a href="#0">Call Payment</a></li>
 

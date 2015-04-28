@@ -217,7 +217,7 @@
                                     <label for="usernamesignup" class="uname" data-icon="">Paypal ID</label>
                                     <input id="usernamesignup" name="ppid"  type="text" placeholder="mysupermail@mail.com" />
                                 </p>
-
+                               
                                 </p>
                                 <br>
 

@@ -30,8 +30,25 @@
             <header class="cd-header">
                 <nav>
                     <ul class="cd-secondary-nav">
-                        <li><a href="#0">Log In</a></li>
-                        <li><a href="#0">Register</a></li>
+                        <li><a href="reglog.html">About</a></li>
+                            <%
+
+                                String role = (String) session.getAttribute("role");
+                                if (role.equals("")) {
+
+                            %>
+
+                        <li><a href="RegLog.jsp">Login</a></li>
+                        <li><a href="RegLog.jsp#toregister">Register</a></li>
+                            <%} else if (role.equals("customer")) {%>
+                        <li><a href="RegLog.jsp">Log out</a></li>
+                        <li><a href="RegLog.jsp">Cart</a></li>
+                            <%} else if (role.equals("merchant")) {%>
+                        <li><a href="RegLog.jsp">Log out</a></li>
+
+                        <%} else if (role.equals("admin")) {%>
+                        <li><a href="RegLog.jsp">Log out</a></li>
+                            <%}%>
                     </ul>
                 </nav>
                 <!-- cd-nav --> 
@@ -40,25 +57,93 @@
             </header>
             <nav>
                 <ul class="cd-primary-nav">
-                    <li class="cd-label">About us</li>
-                    <li><a href="#0">The team</a></li>
-                    <li><a href="#0">Our services</a></li>
-                    <li><a href="#0">Our projects</a></li>
-                    <li class="cd-label">Work with us</li>
-                    <li><a href="#0">Start a project</a></li>
-                    <li><a href="#0">Join In</a></li>
-                    <li><a href="#0">Create an account</a></li>
+                    <%if (role.equals("customer")) {%>
+                    <li class="cd-label">Information</li>
+                    <li><a href="#0">My Information</a></li>
+                    <li class="cd-label">Product</li>
+                    <li><a href="#0">My Photo</a></li>
                     <li class="cd-label">Follow us</li>
                     <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                     <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                     <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                     <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+
+                    <%} else if (role.equals("merchant")) {%>
+                    <li class="cd-label">Information</li>
+                    <li><a href="#0">My Information</a></li>
+                    <li class="cd-label">Manage</li>
+                    <li><a href="#0">Add Photo</a></li>
+                    <li><a href="#0">Remove Photo</a></li>
+                    <li class="cd-label">Payment</li>
+                    <li><a href="#0">Call Payment</a></li>
+
+                    <li class="cd-label">Follow us</li>
+                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+
+                    <%} else if (role.equals("admin")) {%>
+                    <li class="cd-label">User</li>
+                    <li><a href="#0">Merchant</a></li>
+                    <li><a href="#0">Customer</a></li>
+                    <li class="cd-label">Product</li>
+                    <li><a href="#0">Enable Photo</a></li>
+                    <li><a href="#0">Delete Photo</a></li>
+                    <li><a href="#0">Photo Information</a></li>
+                    <li class="cd-label">Payment</li>
+                    <li><a href="#0">Set Payment</a></li>
+                    <li class="cd-label">Follow us</li>
+                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+                        <%}%>
                 </ul>
             </nav>
+
+
+            <br>
+            <br>
+            <div class="table-title" align="center" >
+                <div style="padding:10px; width:300px;height:50px;background-color:rgba(255,255,255,.3); border-radius:10px;">
+                    <h3>Data Table</h3>
+                    <br>
+                </div>
+                <br>
+                <br>
+            </div>
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">Photo</th>
+                        <th class="text-left">Name</th>
+                        <th class="text-left">Price</th>
+                        <th class="text-left">Date</th>
+                        <th class="text-left">SaleAmount</th>
+                        <th class="text-left">Info</th>
+                        <th class="text-left">Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tbody class="table-hover">
+                    <tr>
+                        <td class=""> <img src="Watermark/re1.jpg" alt="re1" /></td>
+                        <td class="text-left">name</td>
+                        <td class="text-left">$5.0</td>
+                        <td class="text-left">19.19</td>
+                        <td class="text-left">123</td>
+                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="#" class="myButton">Remove</a></td>
+                    </tr>
+
+                </tbody>
+            </table>
             <script src="js/jquery-2.1.1.js"></script> 
             <script src="js/main.js"></script>
-            
-            <img src="../WEB-INF/img/web-logo.png" width="1000" height="491" alt="web-logo"/>
+
+
 
     </body>
 </html>
