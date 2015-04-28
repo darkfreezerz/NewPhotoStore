@@ -52,13 +52,14 @@ public class UploadServlet extends HttpServlet {
 
         HttpSession session = request.getSession();
         String uid = (String) session.getAttribute("userid");
+        
 
         // gets absolute path of the web application
         String appPath = request.getServletContext().getRealPath("");
         appPath = appPath.replace(File.separator + "build" + File.separator + "web", "");
         // constructs path of the directory to save uploaded file
-        String savePath = appPath + File.separator + UPLOAD_DIRECTORY + File.separator + uid;
-        String savePathWaterMark = appPath + File.separator + "Watermark" + File.separator + uid;
+        String savePath = appPath + File.separator + "web" + File.separator + UPLOAD_DIRECTORY ;//+ File.separator + uid;
+        String savePathWaterMark = appPath + File.separator + "web" + File.separator + "Watermark" ;//+ File.separator + uid;
 
         //process only if its multipart content
         
@@ -75,9 +76,9 @@ public class UploadServlet extends HttpServlet {
                         new DiskFileItemFactory()).parseRequest(request);
                 //out.print(multiparts);
                 for (FileItem item : multiparts) {
-                    /*if (!item.isFormField()) {
+                   /* if (!item.isFormField()) {
                      String name = new File(item.getName()).getName();
-                     item.write(new File(UPLOAD_DIRECTORY + File.separator + name));
+                     item.write(new File(savePath + File.separator + uid + ));
                          
                         
                      } else{
@@ -117,7 +118,7 @@ public class UploadServlet extends HttpServlet {
                 
                 String photo_id = String.valueOf(ManagePro.maxID());
 
-                out.print(photo_id + " " + savePath + " " + savePathWaterMark);
+                //out.print(photo_id + " " + savePath + " " + savePathWaterMark);
 
                 //File uploaded successfully
                 request.setAttribute("message", "File Uploaded Successfully");
