@@ -166,9 +166,9 @@ public class RegLogDB extends HttpServlet {
     public void createFolder(String path,String mID){
         
         
-        File file = new File(path+File.separator+"PhotoStore"+File.separator+mID);
+        File file = new File(path+File.separator+"web"+File.separator+"PhotoStore"+File.separator+mID);
         
-        File water = new File(path+File.separator+"Watermark"+File.separator+mID);
+        File water = new File(path+File.separator+"web"+File.separator+"Watermark"+File.separator+mID);
         
 	if (!file.exists()&&!water.exists()) {
 		if (file.mkdir()&&water.mkdir()) {
