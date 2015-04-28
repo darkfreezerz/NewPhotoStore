@@ -14,7 +14,7 @@ public class DBConnection {
     private String db_driver = "com.mysql.jdbc.Driver";
     private String db_url = "jdbc:mysql://localhost:3306/Photo?zeroDateTimeBehavior=convertToNull";
     private String db_user = "root";
-    private String db_pass = "root";
+    private String db_pass = "";
 
     public String getDb_driver() {
         return db_driver;

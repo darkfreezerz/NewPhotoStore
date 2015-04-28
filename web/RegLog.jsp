@@ -121,7 +121,7 @@
                     <a class="hiddenanchor" id="toregister"></a> <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form">
-                            <form  action="login.do" autocomplete="on">
+                            <form  action="login.do" method="post" autocomplete="on">
           
                                 <h1>Log in</h1>
                                 <%if(loginflag.equals("error")){%>
@@ -158,7 +158,7 @@
                             </form>
                         </div>
                         <div id="register" class="animate form">
-                            <form  action="index.html" autocomplete="on">
+                            <form  action="check.do" method="post" autocomplete="on">
                                 <h1> Sign up </h1>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
@@ -195,27 +195,27 @@
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Address</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="11/11" />
+                                    <input id="usernamesignup" name="address"  type="text" placeholder="11/11" />
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Distinct</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="Ladkrabang" />
+                                    <input id="usernamesignup" name="distinct"  type="text" placeholder="Ladkrabang" />
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Province</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="Bangkok" />
+                                    <input id="usernamesignup" name="province"  type="text" placeholder="Bangkok" />
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Country</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="Thailand" />
+                                    <input id="usernamesignup" name="country"  type="text" placeholder="Thailand" />
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Zipcode</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="11230" />
+                                    <input id="usernamesignup" name="zipcode"  type="text" placeholder="11230" />
                                 </p>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="">Paypal ID</label>
-                                    <input id="usernamesignup" name="tel" required type="text" placeholder="mysupermail@mail.com" />
+                                    <input id="usernamesignup" name="ppid"  type="text" placeholder="mysupermail@mail.com" />
                                 </p>
 
                                 </p>

@@ -23,6 +23,7 @@ public class CheckServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+           
 
             // gets absolute path of the web application
             String appPath = request.getServletContext().getRealPath("");
@@ -41,26 +42,29 @@ public class CheckServlet extends HttpServlet {
             String zipcode = request.getParameter("zipcode");
             String country = request.getParameter("country");
             String ppid = request.getParameter("ppid");
-            String check = request.getParameter("check");
+            String check = request.getParameter("role");
+            
+             out.print("KUY");
 
             Boolean s = !(address.equals("")) && !(distinct.equals("")) && !(province.equals("")) && !(zipcode.equals("")) && !(country.equals("")) && !(ppid.equals(""));
 
             User registcus = new User(id, pwd, name, lname, email, tel);
             User registmer = new User(id, pwd, name, lname, email, tel, address, distinct, province, zipcode, country, ppid);
             RegLogDB Re = new RegLogDB();
+            
 
             if (check == null) {
                 //Register for customer
                 Re.addCustomer(registcus);
-                response.sendRedirect("Home.jsp");
+                response.sendRedirect("RegLog.jsp");
             } else if (check.equals("photographer") && s) {
                 //Register for photographer
                 Re.addMerchant(registmer, appPath);
-                response.sendRedirect("Home.jsp");
+                response.sendRedirect("RegLog.jsp");
             } else {
                 //Insert data not for photographer but check photographer
                 //getServletContext().getRequestDispatcher("/register.html").forward(request,response);
-                response.sendRedirect("LoginNRegister.html");
+                response.sendRedirect("RegLog.jsp#toregister");
             }
 
         }
