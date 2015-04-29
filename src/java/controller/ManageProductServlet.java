@@ -54,6 +54,7 @@ public class ManageProductServlet extends HttpServlet {
             }else if(role.equals("merchant")){
                 products = spd.ShowAllMerchantProduct(uid);
                 session.setAttribute("searchmerchant", products);
+                
             }
         }
     }

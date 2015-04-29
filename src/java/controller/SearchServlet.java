@@ -44,6 +44,7 @@ public class SearchServlet extends HttpServlet {
             HttpSession picture = request.getSession();
             picture.setAttribute("searchKeyWord", products);
             
+            
         }
     }
 
