@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package database;
 
 
 import bean.Product;
@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import websetting.DBConnection;
 
 /**
  *
@@ -27,10 +28,11 @@ public class Cart {
     private Connection conn;
 
     //  *** Information Can Change Depend on Computer Mysql Directories ^_^  eiei
-    private String db_driver = "com.mysql.jdbc.Driver";
-    private String db_url = "jdbc:mysql://localhost:3306/Photo?zeroDateTimeBehavior=convertToNull";
-    private String db_user = "root";
-    private String db_pass = "root";
+    DBConnection db = new DBConnection();
+    private String db_driver = db.getDb_driver();
+    private String db_url = db.getDb_url();
+    private String db_user = db.getDb_user();
+    private String db_pass = db.getDb_pass();
     List<Product> cart;
 
     public Cart() {
@@ -85,6 +87,26 @@ public class Cart {
         }
 
     }
+    
+    public boolean CheckProductHave(String p_id, String c_id){
+        
+        boolean result = true;
+        String sql = "SELECT * FROM purchase_order natural join order_des where P_ID ='" + p_id +"' AND Customer_C_ID = '" + c_id +"'" ;
+        PreparedStatement stmt;
+        try {
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                result = false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Cart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        return result;
+    }
 
     public double PriceSum(List<Product> cart) {
         double sum = 0;
@@ -111,4 +133,12 @@ public class Cart {
      System.out.println(x.PriceSum(x.getCart()));
         
      }*/
+    
+    /*public static void main(String[] args){
+        
+        Cart cart = new Cart();
+        System.out.print(cart.CheckProductHave("7", "0"));
+        
+        
+    }*/
 }
