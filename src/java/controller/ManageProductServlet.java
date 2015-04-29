@@ -45,6 +45,7 @@ public class ManageProductServlet extends HttpServlet {
             
             ShowProductData spd = new ShowProductData();
             
+            
             if(role.equals("admin")){
                 products = spd.ShowAllProduct();
                 session.setAttribute("searchamdin", products);
