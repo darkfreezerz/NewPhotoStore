@@ -74,7 +74,7 @@
                 <li><a href="#0">My Information</a></li>
                 <li class="cd-label">Manage</li>
                 <li><a href="Upload.jsp">Add Photo</a></li>
-                <li><a href="ManageProduct.jsp">Remove Photo</a></li>
+                <li><a href="manage.do">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
                 <li><a href="#0">Call Payment</a></li>
 
