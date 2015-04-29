@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,7 +42,7 @@ public class ManageProductServlet extends HttpServlet {
             
             List <Product> products = new LinkedList<Product>();
             
- 
+          
             
             ShowProductData spd = new ShowProductData();
             
@@ -54,10 +55,14 @@ public class ManageProductServlet extends HttpServlet {
                 products = spd.ShowAllCustomerProduct(uid);
                 session.setAttribute("searchcustomer", products);
             }else if(role.equals("merchant")){
+ 
                 products = spd.ShowAllMerchantProduct(uid);
+            
                 session.setAttribute("searchmerchant", products);
                 
             }
+           
+            response.sendRedirect("ManageProduct.jsp");
         }
     }
 
