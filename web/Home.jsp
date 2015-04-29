@@ -71,8 +71,8 @@
                 <li class="cd-label">Information</li>
                 <li><a href="#0">My Information</a></li>
                 <li class="cd-label">Manage</li>
-                <li><a href="#0">Add Photo</a></li>
-                <li><a href="ManageProduct.jsp">Remove Photo</a></li>
+                <li><a href="Upload.jsp">Add Photo</a></li>
+                <li><a href="#0">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
                 <li><a href="#0">Call Payment</a></li>
 
@@ -108,8 +108,8 @@
         <main class="cd-main-content">
             <div class="cd-container">
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quos, voluptate, sunt, in suscipit quibusdam quis dignissimos eligendi repellendus ipsam exercitationem adipisci nostrum fugit accusamus quae cum nisi accusantium eaque. </p>
-                <form class="form-wrapper cf">
-                    <input type="text" placeholder="Search Some Photo ......" required>
+                <form action="search.do" method="post" class="form-wrapper cf">
+                    <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
                     <button type="submit">Search</button>
                 </form>
                 <div class="body" align="center">

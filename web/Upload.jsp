@@ -58,39 +58,39 @@
             </nav>
 
             <br>
+            <form action="upload.do" method="post" enctype="multipart/form-data" >
+                <div class="choose ">
+                    <div class="buttonchoose roundedCorners animation"  style="margin-left:2%; height:40px; width:300px; font-size:30px;">
+                        <input type="file" name="file" value="" style="opacity: 0.5; margin-top:5px;"/>
+                    </div>
 
-            <div class="choose ">
-                <div class="buttonchoose roundedCorners animation"  style="margin-left:2%; height:40px; width:300px; font-size:30px;">
-                    <input type="file" name="file" value="" style="opacity: 0.5; margin-top:5px;"/>
+
+                    <h1 style="float:left; margin:10px;">Name</h1>
+                    <input type="name" name="namepic"	 	style="margin:10px;width:710px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
+                    <h1 style="float:left; margin:10px;">Price</h1><br><br>
+                    <input type="price" name="pricepic" 	style="margin:10px;width:200px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
+                    <h1 style="float:left; margin:10px;">Catalog</h1>
+                    <div class="dropdown" style="margin-left:10px;">
+                        <select name="catalog" class="dropdown-select">
+                            <option value="">Select…</option>
+                            <option value="1">People</option>
+                            <option value="2">Place</option>
+                            <option value="3">Nature</option>
+                            <option value="4">Animal</option>
+                            <option value="5">Food</option>
+                            <option value="6">Graphic</option>
+                            <option value="7">Things</option>
+                            <option value="8">Other..</option>
+                        </select>
+                    </div>
+                    <br>
+                    <br>
+
+                    <h1 style="float:left; margin:10px;">Description</h1>
+                    <TEXTAREA type="description" name="description"  style="border-radius:10px;border-color:#F36; padding: 15px; margin:10px; border: #09F; width:700px; height:300px;"  ></TEXTAREA>
+                    <button>Upload</button>
                 </div>
-
-
-                <h1 style="float:left; margin:10px;">Name</h1>
-                <input type="name"	 	style="margin:10px;width:710px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
-                <h1 style="float:left; margin:10px;">Price</h1><br><br>
-                <input type="price" 	style="margin:10px;width:200px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
-                <h1 style="float:left; margin:10px;">Catalog</h1>
-                <div class="dropdown" style="margin-left:10px;">
-                    <select name="catalog" class="dropdown-select">
-                        <option value="">Select…</option>
-                        <option value="1">People</option>
-                        <option value="2">Place</option>
-                        <option value="3">Nature</option>
-                        <option value="4">Animal</option>
-                        <option value="5">Food</option>
-                        <option value="6">Graphic</option>
-                        <option value="7">Things</option>
-                        <option value="8">Other..</option>
-                    </select>
-                </div>
-                <br>
-                <br>
-
-                <h1 style="float:left; margin:10px;">Description</h1>
-                <TEXTAREA type="description" name"des"  style="border-radius:10px;border-color:#F36; padding: 15px; margin:10px; border: #09F; width:700px; height:300px;"  ></TEXTAREA>
-                <button>Upload</button>
-            </div>
-
+            </form>
             <div class="wrapper">
                 <div class="social">&#62220;</div>
                 <div class="social">&#62217;</div>
@@ -100,6 +100,7 @@
                 <div class="social">&#62226;</div>
                 <div class="social">&#62214;</div>
             </div>
+
 
             <script src="js/jquery-2.1.1.js"></script> 
             <script src="js/main.js"></script> <!-- Resource jQuery --> 

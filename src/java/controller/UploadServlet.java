@@ -58,8 +58,8 @@ public class UploadServlet extends HttpServlet {
         String appPath = request.getServletContext().getRealPath("");
         appPath = appPath.replace(File.separator + "build" + File.separator + "web", "");
         // constructs path of the directory to save uploaded file
-        String savePath = appPath + File.separator + "web" + File.separator + UPLOAD_DIRECTORY ;//+ File.separator + uid;
-        String savePathWaterMark = appPath + File.separator + "web" + File.separator + "Watermark" ;//+ File.separator + uid;
+        String savePath = appPath + File.separator + "web" + File.separator + UPLOAD_DIRECTORY + File.separator + uid;
+        String savePathWaterMark = appPath + File.separator + "web" + File.separator + "Watermark" + File.separator + uid;
 
         //process only if its multipart content
         
@@ -138,6 +138,7 @@ public class UploadServlet extends HttpServlet {
                     "Sorry this Servlet only handles file upload request");
 
         }
+        response.sendRedirect("Upload.jsp");
 
         // request.getRequestDispatcher("/ResultPage.jsp").forward(request, response);
     }
