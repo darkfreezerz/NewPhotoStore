@@ -89,7 +89,7 @@
                 <li><a href="#0">Merchant</a></li>
                 <li><a href="#0">Customer</a></li>
                 <li class="cd-label">Product</li>
-                <li><a href="#0">Enable Photo</a></li>
+                <li><a href="enableproduct.do">Enable Photo</a></li>
                 <li><a href="#0">Delete Photo</a></li>
                 <li><a href="#0">Photo Information</a></li>
                 <li class="cd-label">Payment</li>

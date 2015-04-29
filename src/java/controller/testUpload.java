@@ -36,49 +36,10 @@ public class testUpload extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        WatermarkImage addMark = new WatermarkImage();
-        
-        String uid = "1";
-        
-        String appPath = request.getServletContext().getRealPath("");
-        appPath = appPath.replace(File.separator + "build" + File.separator + "web", "");
-        
-        
-        String savePath = appPath + File.separator + "web" + File.separator + "PhotoStore" ;
-        String savePathWaterMark = appPath + File.separator + "web" + File.separator + "Watermark" ;
-
-        //process only if its multipart content
-        if (ServletFileUpload.isMultipartContent(request)) {
-            try {
-                List<FileItem> multiparts = new ServletFileUpload(
-                        new DiskFileItemFactory()).parseRequest(request);
-                PrintWriter out = response.getWriter();
-                out.print(savePath+ " " + savePathWaterMark + " " + appPath);
-                for (FileItem item : multiparts) {
-                    if (!item.isFormField()) {
-                        String name = new File(item.getName()).getName();
-                        item.write(new File(savePath + File.separator + "1.jpg" ));
-
-                    }
-                }
-                
-                File sourceImageFile = new File(savePath + File.separator + "1.jpg");
-                File watermarkImageFile = new File(appPath + File.separator + "web" + File.separator + "water1600.png");
-                File destImageFile = new File(savePathWaterMark + File.separator + "1" + "_wm.jpg");
-                File resizeImageWatermark = new File(savePathWaterMark + File.separator +  "re" + "1" + ".jpg");
-                
-                addMark.addImageWatermark(watermarkImageFile, sourceImageFile, destImageFile, resizeImageWatermark);
-
-                //File uploaded successfully
-                request.setAttribute("message", "File Uploaded Successfully");
-            } catch (Exception ex) {
-                request.setAttribute("message", "File Upload Failed due to " + ex);
-            }
-
-        } else {
-            request.setAttribute("message",
-                    "Sorry this Servlet only handles file upload request");
-        }
+     try(PrintWriter out = response.getWriter()){
+         String a = request.getServletContext().getRealPath("");
+         out.print(a);
+     }
 
        // request.getRequestDispatcher("/ResultPage.jsp").forward(request, response);
 

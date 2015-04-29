@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ManageProduct
-    Created on : Apr 28, 2015, 6:48:26 PM
+    Document   : EnablePhoto
+    Created on : Apr 30, 2015, 1:17:48 AM
     Author     : niponsarikan
 --%>
 
@@ -113,7 +113,7 @@
             <br>
             <div class="table-title" align="center" >
                 <div style="padding:10px; width:300px;height:50px;background-color:rgba(255,255,255,.3); border-radius:10px;">
-                    <h3>Product Data</h3>
+                    <h3>Enable Data</h3>
                     <br>
                 </div>
                 <br>
@@ -121,8 +121,8 @@
             </div>
             <%
                 List<Product> products = new LinkedList<Product>();
-                if (role.equals("customer")) {
-                    products = (List) session.getAttribute("searchcustomer");
+                if (role.equals("admin")) {
+                    products = (List) session.getAttribute("enproduct");
             %>
             <table class="table-fill">
                 <thead>
@@ -130,8 +130,10 @@
                         <th class="text-left">Photo</th>
                         <th class="text-left">Name</th>
                         <th class="text-left">Price</th>
+                        <th class="text-left">Description</th>
                         <th class="text-left">Info</th>
-                        <th class="text-left">Download</th>
+                        <th class="text-left">Enable</th>
+                        <th class="text-left">Disable</th>
 
                     </tr>
                 </thead>
@@ -142,53 +144,21 @@
                         <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px" /></td>
                         <td class="text-left"><%=product.getName()%></td>
                         <td class="text-left">$<%=product.getPrice()%></td>
+                        <td class="text-left">$<%=product.getDescription()%></td>
 
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Remove</a></td>
+                        <td class=""><a href="" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="endisphoto.do?status=en&index=<%=products.indexOf(product) %>" class="myButton">Enable</a></td>
+                        <td class=""><a href="endisphoto.do?status=dis&index=<%=products.indexOf(product) %>" class="myButton">Disable</a></td>
 
                     </tr>
                     <%}%>
 
                 </tbody>
             </table>
-            <%} else if (role.equals("merchant")) {
-                products = (List) session.getAttribute("searchmerchant");
-            %>
-
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Photo</th>
-                        <th class="text-left">Name</th>
-                        <th class="text-left">Price</th>
-                        <th class="text-left">Date</th>
-                        <th class="text-left">SaleAmount</th>
-                        <th class="text-left">Info</th>
-                        <th class="text-left">Delete</th>
-
-
-                    </tr>
-                </thead>
-                <tbody class="table-hover">
-                    <%for (Product product : products) {%>
-                    <tr>
-                        
-                        <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px"/></td>
-                        <td class="text-left"><%=product.getName()%></td>
-                        <td class="text-left">$<%=product.getPrice()%></td>
-                        <td class="text-left"><%=product.getDate()%></td>
-                        <td class="text-left">$<%=product.getSaleAmount()%></td>
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Remove</a></td>
-                        
-                    </tr>
-                    <%}%>
-
-                </tbody>
-            </table>
-
-
-            <%}%>
+                    <%}else{
+                    response.sendRedirect("Fail.jsp");
+                }
+                %>
 
             <script src="js/jquery-2.1.1.js"></script> 
             <script src="js/main.js"></script>
