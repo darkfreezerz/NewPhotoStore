@@ -41,7 +41,7 @@
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
                         <%} else if (role.equals("customer")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="RegLog.jsp">Cart</a></li>
+                    <li><a href="AddToCart.jsp">Cart</a></li>
                         <%} else if (role.equals("merchant")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
 
@@ -55,6 +55,7 @@
             <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
         </header>
         <nav>
+            <!-- customer -->
             <ul class="cd-primary-nav">
                 <%if (role.equals("customer")) {%>
                 <li class="cd-label">Information</li>
@@ -67,6 +68,7 @@
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
                     
+                <!--merchant -->
                  <%}else if (role.equals("merchant")) {%>
                 <li class="cd-label">Information</li>
                 <li><a href="#0">My Information</a></li>
@@ -110,7 +112,7 @@
                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quos, voluptate, sunt, in suscipit quibusdam quis dignissimos eligendi repellendus ipsam exercitationem adipisci nostrum fugit accusamus quae cum nisi accusantium eaque. </p>
                 <form action="search.do" method="post" class="form-wrapper cf">
                     <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
-                    <button type="submit">Search</button>
+                    <button type="submit"  >Search</button>
                 </form>
                 <div class="body" align="center">
                     <ul class="hoverbox">

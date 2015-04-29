@@ -1,25 +1,19 @@
 
-package controller;
 
-import bean.Product;
-import database.SearchEngine;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author HenGzTy
  */
-@WebServlet(name = "SearchServlet", urlPatterns = {"/search.do"})
-public class SearchServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/testadd.do"})
+public class testAdd extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,32 +28,9 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            String picname = request.getParameter("picturename");
-                        
-            SearchEngine search = new SearchEngine();
-            
-            
-            
-            List<Product> products = new LinkedList<Product>();
-            products = search.SearchKeyword(picname);
-            
-            
-            
-            HttpSession picture = request.getSession();
-            picture.setAttribute("searchKeyWord", products);
-            
-            picture.setAttribute("keyword", picname);
-            
-            /*String search = request.getParameter("picturename");
-            
-            request.setAttribute("search", search);*/
-            
-            
-            
-            
-            response.sendRedirect("SearchResult.jsp");
-            
+            /* TODO output your page here. You may use following sample code. */
+            String pic = (String) request.getParameter("picadd");
+            out.print(pic);
         }
     }
 

@@ -17,6 +17,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import websetting.DBConnection;
 
 /**
  *
@@ -27,10 +28,11 @@ public class SearchEngine {
     private Connection conn;
 
     //  *** Information Can Change Depend on Computer Mysql Directories ^_^  eiei
-    private String db_driver = "com.mysql.jdbc.Driver";
-    private String db_url = "jdbc:mysql://localhost:3306/Photo?zeroDateTimeBehavior=convertToNull";
-    private String db_user = "root";
-    private String db_pass = "root";
+    DBConnection db = new DBConnection();
+    private String db_driver = db.getDb_driver();
+    private String db_url = db.getDb_url();
+    private String db_user = db.getDb_user();
+    private String db_pass = db.getDb_pass();
 
     public SearchEngine() {
         try {
@@ -147,7 +149,7 @@ public class SearchEngine {
 
     /*public static void main(String[] args) {
         SearchEngine x = new SearchEngine();
-        List<Product> xx = x.SearchKeyword("a");
+        List<Product> xx = x.SearchKeyword("work");
         System.out.println(xx.get(0).getName());
     }*/
 }
