@@ -44,7 +44,7 @@ public class CheckServlet extends HttpServlet {
             String ppid = request.getParameter("ppid");
             String check = request.getParameter("role");
             
-             out.print("KUY");
+             
 
             Boolean s = !(address.equals("")) && !(distinct.equals("")) && !(province.equals("")) && !(zipcode.equals("")) && !(country.equals("")) && !(ppid.equals(""));
 

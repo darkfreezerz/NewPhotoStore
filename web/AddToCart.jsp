@@ -4,6 +4,10 @@
     Author     : HenGzTy
 --%>
 
+<%@page import="java.io.File"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="bean.Product"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -27,6 +31,11 @@
                     <!--[if IE 7]><link href="css/ie7-only.css" rel="stylesheet" type="text/css" media=screen><![endif]-->
                     <!--[if lt IE 7]><link href="css/ie6-only.css" rel="stylesheet" type="text/css" media=screen><![endif]-->
                     <script src="js/modernizr.js"></script><!-- Modernizr -->
+                    <% String index = request.getParameter("pointer");
+                        List<Product> products = new LinkedList<Product>();
+                        products = (List) session.getAttribute("searchKeyWord");
+                        Product product = products.get(Integer.parseInt(index));
+                    %>
                     </head>
                     <body>
                         <div>
@@ -67,9 +76,9 @@
                                             <div class="container content"  >
                                                 <div id="tab-container-1"  align="center">
                                                     <div class="span-13" >
-                                                        <div class="tab" id="tab1" > <a href="#"><img src="<%=  %>" alt="" /></a></div>
+                                                        <div class="tab" id="tab1" > <a href="#"><img src="Watermark<%=File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>"  /></a></div>
                                                         <div><br>
-                                                                <p class="info"> <strong>Photograph title here</strong> Photograph description and stuff goes right here. </p>
+                                                                <h1 style="font:bold; font-size: 35px" > <%= product.getName()%> </h1>
                                                         </div>
 
                                                     </div>
@@ -81,28 +90,28 @@
                                                                     <br>   
 
                                                                         <div class="span-5 last" >
-                                                                            <h2>Description</h2>
-                                                                            <p>miniGallery is a simple gallery template for anyone out there wishing to use an image gallery which is non-reliant on javascript libraries and extremely light-weight.</p>
-                                                                            <p>The javascript used in miniGallery is the awesome Yetii script. Although Yetii is primarily a tab script, it's so flexible that is is easily customised to meet almost any requirements.</p>
-                                                                            <h3>Price : 1,000,000,000,000,000,000 $</h3>
+                                                                            <h2 style="font:bold; font-size: 20px" >Description</h2><br>
+                                                                            <p style="font-size: 15px" ><%= product.getDescription()%> </p><br>
+                                                                                <p style="font-size: 15px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
+                                                                                    <p style="font-size: 15px" >Price : <%= product.getPrice()%>$</p>
 
-                                                                        </div><br>
-                                                                            <a href="#" class="myButton">Add to Cart</a>
-                                                                            </div>
+                                                                                    </div><br>
+                                                                                        <a href="#" class="myButton">Add to Cart</a>
+                                                                                        </div>
 
-                                                                            </div>
+                                                                                        </div>
 
-                                                                            <div class="wrapper">
-                                                                                <div class="social">&#62220;</div>
-                                                                                <div class="social">&#62217;</div>
-                                                                                <div class="social">&#62223;</div>
-                                                                                <div class="social">&#62232;</div>
-                                                                                <div class="social">&#62235;</div>
-                                                                                <div class="social">&#62226;</div>
-                                                                                <div class="social">&#62214;</div>
-                                                                            </div>
-                                                                            <script src="js/jquery-2.1.1.js"></script> 
-                                                                            <script src="js/main.js"></script> <!-- Resource jQuery -->
-                                                                            </body>
-                                                                            </html>
+                                                                                        <div class="wrapper">
+                                                                                            <div class="social">&#62220;</div>
+                                                                                            <div class="social">&#62217;</div>
+                                                                                            <div class="social">&#62223;</div>
+                                                                                            <div class="social">&#62232;</div>
+                                                                                            <div class="social">&#62235;</div>
+                                                                                            <div class="social">&#62226;</div>
+                                                                                            <div class="social">&#62214;</div>
+                                                                                        </div>
+                                                                                        <script src="js/jquery-2.1.1.js"></script> 
+                                                                                        <script src="js/main.js"></script> <!-- Resource jQuery -->
+                                                                                        </body>
+                                                                                        </html>
 

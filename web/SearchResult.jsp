@@ -13,8 +13,8 @@
 <!DOCTYPE html>
 
 <%
-    List<Product> product = new LinkedList<Product>();
-    product = (List) session.getAttribute("searchKeyWord");
+    List<Product> products = new LinkedList<Product>();
+    products = (List) session.getAttribute("searchKeyWord");
 
     String keyword = (String) session.getAttribute("keyword");
 %>
@@ -123,9 +123,9 @@
                 <h1 style="font-size:24px;"><% out.print(keyword); %></h1>
                 <br>
                 <br>
-                <% for (Product products : product ) {%>
+                <% for (Product product : products ) {%>
                 <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                    <li> <a href="testadd.do?=<%= products.getName() %>"  ><img src="Watermark<%= File.separator + products.getmID() + File.separator + "re" + products.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + products.getmID() + File.separator + products.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
+                    <li> <a href="AddToCart.jsp?pointer=<%= products.indexOf(product)%>"  ><img src="Watermark<%= File.separator + product.getmID() + File.separator + "re" + product.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
                 </div>
                 <% }%>
 
