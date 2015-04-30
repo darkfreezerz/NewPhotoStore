@@ -9,10 +9,7 @@
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%  List<Product> cart = new LinkedList<Product>();
-
-    cart = (List) session.getAttribute("cart");
-    
-    out.print(cart);
-
-%>
+<form action="test.do" method="post"> 
+    <input  type = "text" name = "name" value = "xxxx" required />
+    <input type="submit" />
+</form>

@@ -14,6 +14,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+         <style>
+        @import url("http://weloveiconfonts.com/api/?family=entypo");
+		</style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,80 +129,98 @@
                     something = (Cart) session.getAttribute("cart");
                     cart = something.getCart();
             %>
-            
+
             <table class="table-fill">
-                
-                    <tr>
-                        <th class="text-left">Photo</th>
-                        <th class="text-left">Name</th>
-                        <th class="text-left">Price</th>
-                        <th class="text-left">Description</th>
-                        <th class="text-left">Remove</th>
-                        
-                    </tr>
-                    
-                
+
+                <tr>
+                    <th class="text-left">Photo</th>
+                    <th class="text-left">Name</th>
+                    <th class="text-left">Price</th>
+                    <th class="text-left">Description</th>
+                    <th class="text-left">Remove</th>
+
+                </tr>
+
+
                 <tbody class="table-hover">
                     <%for (Product product : cart) {%>
                     <tr>
 
-                        <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress() %>" style="max-height: 200px ;max-width: 200px" /></td>
-                        <td class="text-left"><%= product.getName() %></td>
+                        <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px" /></td>
+                        <td class="text-left"><%= product.getName()%></td>
                         <td class="text-left">$<%=product.getPrice()%></td>
 
-                        <td class="text-left"><%= product.getDescription() %></td>
+                        <td class="text-left"><%= product.getDescription()%></td>
                         <td class=""><a href="#" class="myButton">Remove</a></td>
-                        
+
+
                     </tr>
                     <%}%>
-                        
+
                 </tbody>
             </table><br><br>
-            <td class="text-left"><%= something.PriceSum(cart) %></td>
-            <%} else if (role.equals("merchant")) {
-                cart = (List) session.getAttribute("searchmerchant");
-            %>
-
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Photo</th>
-                        <th class="text-left">Name</th>
-                        <th class="text-left">Price</th>
-                        <th class="text-left">Date</th>
-                        <th class="text-left">SaleAmount</th>
-                        <th class="text-left">Info</th>
-                        <th class="text-left">Delete</th>
+            <div align="right" style="padding:30px; font-size:30px;">Total Price<span style="border-radius:10px;margin:10px; font-size:18px; background-color:#fff; padding:10px; width:200px;"><%= something.PriceSum(cart) %></span>
+                <br><br><br>
+                <span><div align="right"><input type='image' name='submit' value="click"  src='https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif' border='0' align='top' alt='Check out with PayPal'/></div>
+            </div></span></div>
 
 
-                    </tr>
-                </thead>
-                <tbody class="table-hover">
-                    <%for (Product product : cart) {%>
-                    <tr>
-                        
-                        <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px"/></td>
-                        <td class="text-left"><%=product.getName()%></td>
-                        <td class="text-left">$<%=product.getPrice()%></td>
-                        <td class="text-left"><%=product.getDate()%></td>
-                        <td class="text-left">$<%=product.getSaleAmount()%></td>
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Remove</a></td>
-                        
-                    </tr>
-                    <%}%>
+    <br><br>
+    <div class="wrapper">
+        <div class="social">&#62220;</div>
+        <div class="social">&#62217;</div>
+        <div class="social">&#62223;</div>
+        <div class="social">&#62232;</div>
+        <div class="social">&#62235;</div>
+        <div class="social">&#62226;</div>
+        <div class="social">&#62214;</div>
+    </div>
+    <br><br><br><br>
+<td class="text-left"><%= something.PriceSum(cart)%></td>
+<%} else if (role.equals("merchant")) {
+    cart = (List) session.getAttribute("searchmerchant");
+%>
 
-                </tbody>
-            </table>
+<table class="table-fill">
+    <thead>
+        <tr>
+            <th class="text-left">Photo</th>
+            <th class="text-left">Name</th>
+            <th class="text-left">Price</th>
+            <th class="text-left">Date</th>
+            <th class="text-left">SaleAmount</th>
+            <th class="text-left">Info</th>
+            <th class="text-left">Delete</th>
 
 
-            <%}%>
+        </tr>
+    </thead>
+    <tbody class="table-hover">
+        <%for (Product product : cart) {%>
+        <tr>
 
-            <script src="js/jquery-2.1.1.js"></script> 
-            <script src="js/main.js"></script>
+            <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px"/></td>
+            <td class="text-left"><%=product.getName()%></td>
+            <td class="text-left">$<%=product.getPrice()%></td>
+            <td class="text-left"><%=product.getDate()%></td>
+            <td class="text-left">$<%=product.getSaleAmount()%></td>
+            <td class=""><a href="#" class="myButton" >Get Info</a></td>
+            <td class=""><a href="#" class="myButton">Remove</a></td>
+
+        </tr>
+        <%}%>
+
+    </tbody>
+</table>
+
+
+<%}%>
+
+<script src="js/jquery-2.1.1.js"></script> 
+<script src="js/main.js"></script>
 
 
 
-    </body>
+</body>
 </html>
 

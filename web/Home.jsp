@@ -170,33 +170,33 @@
                     <br>
                     <h1 style="font-size:18px;text-align:Center">Explore mutiple category of images,at ridiculously great prices.</h1>
                     <br>
-                    <div id="polaroid"> <a href="reglog.html">
+                    <div id="polaroid"> <a href="search.do?cat=Animal">
                             <figure> <img src="img/animal.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Animal</figcaption>
                             </figure>
-                        </a> <a href="reglog.html">
+                        </a> <a href="search.do?cat=Place">
                             <figure> <img src="img/place.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Place</figcaption>
                             </figure>
-                        </a> <a href="reglog.html">
+                        </a> <a href="search.do?cat=People">
                             <figure> <img src="\img/animal" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>People</figcaption>
                             </figure>
-                        </a> <a href="reglog.html">
+                        </a> <a href="search.do?cat=Nature">
                             <figure> <img src="img/nature.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Nature</figcaption>
                             </figure>
-                        </a> <a href="reglog.html">
+                        </a> <a href="search.do?cat=Food">
                             <figure> <img src="img/food.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Food</figcaption>
                             </figure>
-                        </a> <a href="reglog.html">
+                        </a> <a href="search.do?cat=Graphic">
                             <figure> <img src="img/graphic.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Graphic</figcaption>
                             </figure>
                         </a>
                         </figure>
-                    </a> <a href="reglog.html">
+                    </a> <a href="search.do?cat=Things">
                     <figure> <img src="img/things.jpg" width="200" height="200" alt="Red mushroom" />
                         <figcaption>Things</figcaption>
                     </figure>

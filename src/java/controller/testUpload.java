@@ -27,7 +27,7 @@ import tool.WatermarkImage;
  *
  * @author niponsarikan
  */
-@WebServlet(name = "java", urlPatterns = {"/testupload.do"})
+@WebServlet(name = "java", urlPatterns = {"/test.do"})
 public class testUpload extends HttpServlet {
 //File savedFile = new File(getServletContext().getRealPath("/upload/"), fullFile.getName());
     // private final String UPLOAD_DIRECTORY = "/Users/niponsarikan/NetBeansProjects/UpDown/Up";
@@ -37,9 +37,10 @@ public class testUpload extends HttpServlet {
             throws ServletException, IOException {
         
      try(PrintWriter out = response.getWriter()){
-         String a = request.getServletContext().getRealPath("");
-         out.print(a);
+         String name = request.getParameter("name");
+         out.print(name);
      }
+  
 
        // request.getRequestDispatcher("/ResultPage.jsp").forward(request, response);
 
