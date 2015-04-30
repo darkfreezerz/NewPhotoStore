@@ -86,8 +86,8 @@
                     
                 <%}else if (role.equals("admin")) {%>
                 <li class="cd-label">User</li>
-                <li><a href="#0">Merchant</a></li>
-                <li><a href="#0">Customer</a></li>
+                <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
+                <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
                 <li class="cd-label">Product</li>
                 <li><a href="enableproduct.do">Enable Photo</a></li>
                 <li><a href="#0">Delete Photo</a></li>

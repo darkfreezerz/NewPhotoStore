@@ -123,7 +123,7 @@ public class ShowUserData {
         List<User> users = new LinkedList<User>();
         try {
 
-            PreparedStatement data = conn.prepareStatement("select * from Customer;");
+            PreparedStatement data = conn.prepareStatement("select * from Customer order by C_Status desc;");
             ResultSet rs = data.executeQuery();
             while (rs.next()) {
                 User user = new User();
@@ -151,7 +151,7 @@ public class ShowUserData {
     public List showAllMerchant() {
         List<User> users = new LinkedList<User>();
         try {
-            PreparedStatement data = conn.prepareStatement("select * from Merchant;");
+            PreparedStatement data = conn.prepareStatement("select * from Merchant order by M_Status desc;");
 
             ResultSet rs = data.executeQuery();
             while (rs.next()) {

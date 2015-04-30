@@ -42,8 +42,9 @@ public class ManageUser {
     //Enable Customer
     public void enCustomer(String cID){
          try {
-             PreparedStatement en = conn.prepareStatement("update customer set c_status ='Yes' where c_id =?;");
+             PreparedStatement en = conn.prepareStatement("update customer set c_status ='Yes' where c_id =?");
              en.setInt(1,Integer.parseInt(cID));
+             en.executeUpdate();
          } catch (SQLException ex) {
              Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -53,6 +54,7 @@ public class ManageUser {
          try {
              PreparedStatement en = conn.prepareStatement("update merchant set m_status ='Yes' where m_id =?;");
              en.setInt(1,Integer.parseInt(mID));
+             en.executeUpdate();
          } catch (SQLException ex) {
              Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
          }
@@ -80,6 +82,11 @@ public class ManageUser {
         } catch (SQLException ex) {
             Logger.getLogger(ManageProduct.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void main(String[] args){
+        ManageUser m = new ManageUser();
+       m.removeCustomer("1");
     }
     
     

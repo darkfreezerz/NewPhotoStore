@@ -1,0 +1,103 @@
+@charset "utf-8";
+
+media="screen"
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, and, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, input, textarea, select {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    background: transparent;
+    vertical-align: baseline;
+    font-size: 100%;
+}
+
+body {
+    overflow-y: scroll;
+    background: #dcdfe2 url(../images/background.jpg);
+    color: #333;
+    font: normal 14px/20px 'Open Sans',Helvetica,Arial,sans-serif;
+}
+.shadow {
+    position: relative;
+    width: 860px;
+    margin: 0 auto;
+}
+.shadow:before, .shadow:after {
+    position: absolute;
+    bottom: 15px;
+    left: 10px;
+    z-index: -2;
+    width: 50%;
+    height: 100px;
+    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
+    content: '';
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+}
+.shadow:after {
+    right: 10px;
+    left: auto;
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+}
+
+#content-wrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 150px;
+    margin-bottom: -18px;
+    width: 860px;
+    border-radius: 20px;
+    background: #f8f8f8 url(../images/background_content.jpg);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    z-index: 0;
+}
+.about-wrapper {
+    float: right;
+    margin: 20px 20px 0 0;
+    padding: 15px;
+    width: 470px;
+}
+
+.textborder {
+    background: #CCCCCC;
+    color: white;
+    text-shadow: 0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
+}
+h5 {
+    text-align: center;
+    font: bold 50px "Source Sans Pro", sans-serif;
+    padding: 10px 0;
+}
+h3{
+    width:100px;
+    text-align: left;
+    font: bold 18px "Source Sans Pro", sans-serif;
+
+}
+
+.box{
+    font:18px "Source Sans Pro", sans-serif;
+    width:390;
+    padding:10px;
+    text-align:left;	
+}
