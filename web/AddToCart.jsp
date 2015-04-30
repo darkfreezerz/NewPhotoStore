@@ -4,6 +4,7 @@
     Author     : HenGzTy
 --%>
 
+<%@page import="database.ManageProduct"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.LinkedList"%>
 <%@page import="bean.Product"%>
@@ -35,6 +36,9 @@
                         List<Product> products = new LinkedList<Product>();
                         products = (List) session.getAttribute("searchKeyWord");
                         Product product = products.get(Integer.parseInt(index));
+
+                        ManageProduct mp = new ManageProduct();
+
                     %>
                     </head>
                     <body>
@@ -91,27 +95,31 @@
 
                                                                         <div class="span-5 last" >
                                                                             <h2 style="font:bold; font-size: 20px" >Description</h2><br>
-                                                                            <p style="font-size: 15px" ><%= product.getDescription()%> </p><br>
-                                                                                <p style="font-size: 15px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
-                                                                                    <p style="font-size: 15px" >Price : <%= product.getPrice()%>$</p>
+                                                                                <p style="font-size: 15px" ><%= product.getDescription()%> </p><br>
+                                                                                    <p style="font-size: 15px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
+                                                                                        <p style="font-size: 15px" >Price : <%= product.getPrice()%>$</p>
 
-                                                                                    </div><br>
-                                                                                        <a href="#" class="myButton">Add to Cart</a>
-                                                                                        </div>
+                                                                                        </div><br>
+                                                                                            <% if (session.getAttribute("role").equals("customer") && mp.CheckProductHave(product.getId(), (String) session.getAttribute("role"))) {%>
+                                                                                            <a href="addtocart.do?pointer=<%= products.indexOf(product)%>" class="myButton">Add to Cart</a>
+                                                                                            <% } else {%>
 
-                                                                                        </div>
+                                                                                            <% }%>
+                                                                                            </div>
 
-                                                                                        <div class="wrapper">
-                                                                                            <div class="social">&#62220;</div>
-                                                                                            <div class="social">&#62217;</div>
-                                                                                            <div class="social">&#62223;</div>
-                                                                                            <div class="social">&#62232;</div>
-                                                                                            <div class="social">&#62235;</div>
-                                                                                            <div class="social">&#62226;</div>
-                                                                                            <div class="social">&#62214;</div>
-                                                                                        </div>
-                                                                                        <script src="js/jquery-2.1.1.js"></script> 
-                                                                                        <script src="js/main.js"></script> <!-- Resource jQuery -->
-                                                                                        </body>
-                                                                                        </html>
+                                                                                            </div>
+
+                                                                                            <div class="wrapper">
+                                                                                                <div class="social">&#62220;</div>
+                                                                                                <div class="social">&#62217;</div>
+                                                                                                <div class="social">&#62223;</div>
+                                                                                                <div class="social">&#62232;</div>
+                                                                                                <div class="social">&#62235;</div>
+                                                                                                <div class="social">&#62226;</div>
+                                                                                                <div class="social">&#62214;</div>
+                                                                                            </div>
+                                                                                            <script src="js/jquery-2.1.1.js"></script> 
+                                                                                            <script src="js/main.js"></script> <!-- Resource jQuery -->
+                                                                                            </body>
+                                                                                            </html>
 

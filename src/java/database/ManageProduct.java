@@ -152,6 +152,25 @@ public class ManageProduct {
         }
         return value;
    }
+   
+   public boolean CheckProductHave(String p_id, String c_id){
+        
+        boolean result = true;
+        String sql = "SELECT * FROM purchase_order natural join order_des where P_ID ='" + p_id +"' AND Customer_C_ID = '" + c_id +"'" ;
+        PreparedStatement stmt;
+        try {
+            stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()){
+                result = false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Cart.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
+   }
+
+   
     
     
    
@@ -159,19 +178,12 @@ public class ManageProduct {
     
 
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         
-        //String UPLOAD_DIRECTORY = "/Users/niponsarikan/Desktop/File";
-        //ManageProduct a = new ManageProduct();
-        List <User> a = new LinkedList<User>();
-        
-       
-        for(int i=0;i<5;i++){
-            User b = new User();
-            b.setId(Integer.toString(i));
-            a.add(b);
+        ManageProduct ma = new ManageProduct();
+        ma.delPhoto("D:\\PhotoStore\\NewPhotoStore\\web\\PhotoStore\\26\\29.jpg");
         }
-        
+        */
        
             
             
@@ -184,4 +196,4 @@ public class ManageProduct {
         //String currentTime = sdf.format(dt);
     }
 
-}
+

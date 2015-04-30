@@ -1,7 +1,7 @@
 package controller;
 
 import bean.Product;
-import database.SearchEngine;
+import database.Cart;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -17,8 +17,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author HenGzTy
  */
-@WebServlet(name = "SearchServlet", urlPatterns = {"/search.do"})
-public class SearchServlet extends HttpServlet {
+@WebServlet(name = "AddtoCartServlet", urlPatterns = {"/addtocart.do"})
+public class AddtoCartServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,39 +33,31 @@ public class SearchServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
 
-            String picname = request.getParameter("picturename");
-            String category = request.getParameter("cat");
-
-            SearchEngine search = new SearchEngine();
-
+            String index =  request.getParameter("pointer");
+            
+            HttpSession session = request.getSession(true);
             List<Product> products = new LinkedList<Product>();
-
-            if (picname != null) {
-                products = search.SearchKeyword(picname);
-
-                HttpSession picture = request.getSession();
-                picture.setAttribute("searchKeyWord", products);
-
-                picture.setAttribute("keyword", picname);
-                
-                response.sendRedirect("SearchResult.jsp");
-
-            } else {
-                products = search.SearchKeyword(category);
-
-                HttpSession picture = request.getSession();
-                picture.setAttribute("searchKeyWord", products);
-
-                picture.setAttribute("keyword", category);
-                
-                response.sendRedirect("SearchResult.jsp");
+            
+            products = (List) session.getAttribute("searchKeyWord");
+            
+            Product product = products.get(Integer.parseInt(index));
+            
+            Cart cart = (Cart) session.getAttribute("cart");
+            cart = null;
+            
+            if(cart == null ){
+                cart = new Cart();
+                cart.addItem(product.getId());
+            }else{
+                cart.addItem(product.getId());
             }
+            
+            session.setAttribute("cart", cart);
+           
+            response.sendRedirect("ShowCart.jsp");
 
-            /*String search = request.getParameter("picturename");
-            
-             request.setAttribute("search", search);*/
-            
 
         }
     }

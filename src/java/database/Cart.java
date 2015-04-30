@@ -85,28 +85,15 @@ public class Cart {
         } catch (SQLException ex) {
             Logger.getLogger(Cart.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
 
     }
     
-    public boolean CheckProductHave(String p_id, String c_id){
-        
-        boolean result = true;
-        String sql = "SELECT * FROM purchase_order natural join order_des where P_ID ='" + p_id +"' AND Customer_C_ID = '" + c_id +"'" ;
-        PreparedStatement stmt;
-        try {
-            stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            if(rs.next()){
-                result = false;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(Cart.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    
         
         
         
-        return result;
-    }
+      
 
     public double PriceSum(List<Product> cart) {
         double sum = 0;
