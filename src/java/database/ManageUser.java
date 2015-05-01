@@ -42,7 +42,7 @@ public class ManageUser {
     //Enable Customer
     public void enCustomer(String cID) {
         try {
-            PreparedStatement en = conn.prepareStatement("update customer set c_status ='Yes' where c_id =?");
+            PreparedStatement en = conn.prepareStatement("update Customer set c_status ='Yes' where c_id =?");
             en.setInt(1, Integer.parseInt(cID));
             en.executeUpdate();
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class ManageUser {
     //Enable Mechant
     public void enMerchant(String mID) {
         try {
-            PreparedStatement en = conn.prepareStatement("update merchant set m_status ='Yes' where m_id =?;");
+            PreparedStatement en = conn.prepareStatement("update Merchant set m_status ='Yes' where m_id =?;");
             en.setInt(1, Integer.parseInt(mID));
             en.executeUpdate();
         } catch (SQLException ex) {
@@ -64,7 +64,7 @@ public class ManageUser {
     //Remove Customer (Set to unavailable)
     public void removeCustomer(String cID) {
         try {
-            PreparedStatement del = conn.prepareStatement("update customer set c_status ='No' where c_id =?");
+            PreparedStatement del = conn.prepareStatement("update Customer set c_status ='No' where c_id =?");
             del.setInt(1, Integer.parseInt(cID));
             del.executeUpdate();
 
@@ -76,7 +76,7 @@ public class ManageUser {
     //Remove Merchant (Set to unavailable)
     public void removeMerchant(String mID) {
         try {
-            PreparedStatement del = conn.prepareStatement("update merchant set m_status ='No' where m_id =?");
+            PreparedStatement del = conn.prepareStatement("update Merchant set m_status ='No' where m_id =?");
             del.setInt(1, Integer.parseInt(mID));
             del.executeUpdate();
 
@@ -87,7 +87,7 @@ public class ManageUser {
 
     public void editcus(String C_ID, String C_Name, String C_LastName, String C_Password, String C_Email, String C_Tel) {
         try {
-            PreparedStatement edit = conn.prepareStatement("update customer set c_name='" + C_Name + "',c_lastname='" 
+            PreparedStatement edit = conn.prepareStatement("update Customer set c_name='" + C_Name + "',c_lastname='" 
                     + C_LastName + "',c_password='"
                     + C_Password + "',c_email='"
                     + C_Email + "',c_tel='"
@@ -104,7 +104,7 @@ public class ManageUser {
     public void editmer(String M_ID, String M_Name, String M_LastName, String M_Password, String M_Email, String M_Tel, String M_Paypal, String M_Address, String M_Distinct, String M_Province, String M_Zipcode, String M_Country) {
 
         try {
-            PreparedStatement edit = conn.prepareStatement("update merchant set m_name='" + M_Name + "',m_last_name='"
+            PreparedStatement edit = conn.prepareStatement("update Merchant set m_name='" + M_Name + "',m_last_name='"
                     + M_LastName + "',m_password='"
                     + M_Password + "',m_Email='"
                     + M_Email + "',m_tel='"
@@ -123,9 +123,9 @@ public class ManageUser {
         }
     }
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         ManageUser m = new ManageUser();
         m.editcus("11", "test" , "test", "test", "qwerty", "test");
-    }
+    }*/
 
 }

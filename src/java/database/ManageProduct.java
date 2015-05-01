@@ -50,9 +50,9 @@ public class ManageProduct {
 
     public void addProduct(Product photo,String path) {
         try {
-            PreparedStatement pro = conn.prepareStatement("insert into product values(default,?,?,now(),?,default,'Not',?,?,0,default)");
-            PreparedStatement pID = conn.prepareStatement("select max(p_id) from product");
-            PreparedStatement add = conn.prepareStatement("update product set p_address =?,p_watermarkurl=? where p_id =?");
+            PreparedStatement pro = conn.prepareStatement("insert into Product values(default,?,?,now(),?,default,'Not',?,?,0,default)");
+            PreparedStatement pID = conn.prepareStatement("select max(p_id) from Product");
+            PreparedStatement add = conn.prepareStatement("update Product set p_address =?,p_watermarkurl=? where p_id =?");
             pro.setString(1, photo.getName());
             pro.setDouble(2, photo.getPrice());
             pro.setString(3, photo.getDescription());
@@ -76,7 +76,7 @@ public class ManageProduct {
     //Remove Product (Set to unavailable)
     public void removeProduct(String pID) {
         try {
-            PreparedStatement del = conn.prepareStatement("update product set p_status ='No' where p_id =?");
+            PreparedStatement del = conn.prepareStatement("update Product set p_status ='No' where p_id =?");
             del.setInt(1, Integer.parseInt(pID));
             del.executeUpdate();
 
@@ -88,7 +88,7 @@ public class ManageProduct {
     //Set Product to available in store
     public void enProduct(String pID) {
         try {
-            PreparedStatement del = conn.prepareStatement("update product set p_status ='Yes' where p_id =?");
+            PreparedStatement del = conn.prepareStatement("update Product set p_status ='Yes' where p_id =?");
             del.setInt(1, Integer.parseInt(pID));
             del.executeUpdate();
 
@@ -100,8 +100,8 @@ public class ManageProduct {
     //Delete photo from Database
     public void delProductData(String pID,String path) {
         try {
-            PreparedStatement url = conn.prepareStatement("select p_address,p_watermarkurl,m_id from product where p_id =?");
-            PreparedStatement del = conn.prepareStatement("delete from product where p_id=?");
+            PreparedStatement url = conn.prepareStatement("select p_address,p_watermarkurl,m_id from Product where p_id =?");
+            PreparedStatement del = conn.prepareStatement("delete from Product where p_id=?");
             ManageProduct manage = new ManageProduct();
             url.setInt(1, Integer.parseInt(pID));
             ResultSet rs = url.executeQuery();
@@ -143,7 +143,7 @@ public class ManageProduct {
    public int maxID(){
        int value = 0;
         try {
-            PreparedStatement max = conn.prepareStatement("select max(P_ID) from product ;");
+            PreparedStatement max = conn.prepareStatement("select max(P_ID) from Product ;");
             ResultSet rs = max.executeQuery();
             rs.next();
             value = rs.getInt(1);
@@ -156,7 +156,7 @@ public class ManageProduct {
    public boolean CheckProductHave(String p_id, String c_id){
         
         boolean result = true;
-        String sql = "SELECT * FROM purchase_order natural join order_des where P_ID ='" + p_id +"' AND Customer_C_ID = '" + c_id +"'" ;
+        String sql = "SELECT * FROM Purchase_Order natural join Order_Des where P_ID ='" + p_id +"' AND Customer_C_ID = '" + c_id +"'" ;
         PreparedStatement stmt;
         try {
             stmt = conn.prepareStatement(sql);

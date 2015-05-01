@@ -72,7 +72,7 @@ public class RegLogDB extends HttpServlet {
 
     public void addCustomer(User customer) {
         try {
-            PreparedStatement cus = conn.prepareStatement("insert into customer values(default,?,?,?,?,?,?,'Yes',now(),0)");
+            PreparedStatement cus = conn.prepareStatement("insert into Customer values(default,?,?,?,?,?,?,'Yes',now(),0)");
             cus.setString(1, customer.getFirstname());
             cus.setString(2, customer.getLastname());
             cus.setString(3, customer.getUsername());
@@ -87,8 +87,8 @@ public class RegLogDB extends HttpServlet {
 
     public void addMerchant(User merchant,String path) {
         try {
-            PreparedStatement mer = conn.prepareStatement("insert into merchant values(default,?,?,?,?,?,?,?,?,?,?,?,?,'Yes',now(),0)");
-            PreparedStatement max_id = conn.prepareStatement("select max(m_id) from merchant");
+            PreparedStatement mer = conn.prepareStatement("insert into Merchant values(default,?,?,?,?,?,?,?,?,?,?,?,?,'Yes',now(),0)");
+            PreparedStatement max_id = conn.prepareStatement("select max(m_id) from Merchant");
             mer.setString(1, merchant.getFirstname());
             mer.setString(2, merchant.getLastname());
             mer.setString(3, merchant.getUsername());
@@ -166,9 +166,9 @@ public class RegLogDB extends HttpServlet {
     public void createFolder(String path,String mID){
         
         
-        File file = new File(path+File.separator+"web"+File.separator+"PhotoStore"+File.separator+mID);
+        File file = new File(path+File.separator+"PhotoStore"+File.separator+mID);
         
-        File water = new File(path+File.separator+"web"+File.separator+"Watermark"+File.separator+mID);
+        File water = new File(path+File.separator+"Watermark"+File.separator+mID);
         
 	if (!file.exists()&&!water.exists()) {
 		if (file.mkdir()&&water.mkdir()) {

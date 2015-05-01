@@ -56,7 +56,7 @@ public class Cart {
     public void addItem(String pid) {
 
         try {
-            String sql = "select * from product natural join merchant where P_ID = '" + pid + "'";
+            String sql = "select * from Product natural join Merchant where P_ID = '" + pid + "'";
             PreparedStatement add = conn.prepareStatement(sql);
             ResultSet rs = add.executeQuery();
             int check = 0;

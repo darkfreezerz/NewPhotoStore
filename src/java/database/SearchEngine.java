@@ -49,9 +49,9 @@ public class SearchEngine {
         List<Product> products = new LinkedList<Product>();
         try {
 
-            String sql = "SELECT * FROM product "
-                    + "NATURAL JOIN category "
-                    + "NATURAL JOIN merchant "
+            String sql = "SELECT * FROM Product "
+                    + "NATURAL JOIN Category "
+                    + "NATURAL JOIN Merchant "
                     + "WHERE P_Status = 'Yes' ";
             PreparedStatement search = conn.prepareStatement(sql);
             ResultSet rs = search.executeQuery();
@@ -85,7 +85,7 @@ public class SearchEngine {
         List<Product> products = new LinkedList<Product>();
         try {
 
-            String sql = "SELECT * FROM product NATURAL JOIN category NATURAL JOIN merchant WHERE (P_Name LIKE '%"+keyword+"%' or P_Des LIKE '%"+keyword+"%' or Cate_Name LIKE '%"+keyword+"%' or Cate_Des LIKE '%"+keyword+"%' or M_Name LIKE '%"+keyword+"%' or M_LastName LIKE '%"+keyword+"%') and P_Status = 'Yes' ";
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE (P_Name LIKE '%"+keyword+"%' or P_Des LIKE '%"+keyword+"%' or Cate_Name LIKE '%"+keyword+"%' or Cate_Des LIKE '%"+keyword+"%' or M_Name LIKE '%"+keyword+"%' or M_LastName LIKE '%"+keyword+"%') and P_Status = 'Yes' ";
             PreparedStatement search = conn.prepareStatement(sql);
             ResultSet rs = search.executeQuery();
             while (rs.next()) {
@@ -118,7 +118,7 @@ public class SearchEngine {
         List<Product> products = new LinkedList<Product>();
         try {
 
-            String sql = "SELECT * FROM product NATURAL JOIN category NATURAL JOIN merchant WHERE (Cate_ID = "+cateid+") and P_Status = 'Yes' ";
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE (Cate_ID = "+cateid+") and P_Status = 'Yes' ";
             PreparedStatement search = conn.prepareStatement(sql);
             ResultSet rs = search.executeQuery();
             while (rs.next()) {

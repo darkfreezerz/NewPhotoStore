@@ -56,10 +56,10 @@ public class UploadServlet extends HttpServlet {
 
         // gets absolute path of the web application
         String appPath = request.getServletContext().getRealPath("");
-        appPath = appPath.replace(File.separator + "build" + File.separator + "web", "");
+       
         // constructs path of the directory to save uploaded file
-        String savePath = appPath + File.separator + "web" + File.separator + UPLOAD_DIRECTORY + File.separator + uid;
-        String savePathWaterMark = appPath + File.separator + "web" + File.separator + "Watermark" + File.separator + uid;
+        String savePath = appPath +File.separator + UPLOAD_DIRECTORY + File.separator + uid;
+        String savePathWaterMark = appPath + File.separator + "Watermark" + File.separator + uid;
 
         //process only if its multipart content
         
@@ -124,7 +124,7 @@ public class UploadServlet extends HttpServlet {
                 request.setAttribute("message", "File Uploaded Successfully");
 
                 File sourceImageFile = new File(savePath + File.separator + photo_id  + ".jpg");
-                File watermarkImageFile = new File(appPath + File.separator + "web" + File.separator + "water1600.png");
+                File watermarkImageFile = new File(appPath +  File.separator + "water1600.png");
                 File destImageFile = new File(savePathWaterMark + File.separator + photo_id + "_wm.jpg");
                 File resizeImageWatermark = new File(savePathWaterMark + File.separator +  "re" + photo_id + ".jpg");
                 

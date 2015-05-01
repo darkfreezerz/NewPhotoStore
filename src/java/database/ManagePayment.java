@@ -96,7 +96,7 @@ public class ManagePayment {
     public void requestPayment(String mID, double salesum) {
         try {
             ManagePayment manage = new ManagePayment();
-            PreparedStatement re = conn.prepareStatement("update product natural join order_des set PaymentStatus = 'Yes' where m_id = ?;");
+            PreparedStatement re = conn.prepareStatement("update Product natural join Order_Des set PaymentStatus = 'Yes' where m_id = ?;");
             re.setInt(1, Integer.parseInt(mID));
             re.executeUpdate();
             manage.setPayment(mID, salesum);

@@ -46,7 +46,7 @@ public class ShowPaymentData {
         List <ProductSold> products = new LinkedList<ProductSold>();
         ShowPaymentData count = new ShowPaymentData();
         try {
-            PreparedStatement show = conn.prepareStatement("select * from order_des natural join product "
+            PreparedStatement show = conn.prepareStatement("select * from Order_Des natural join Product "
                     + "where m_ID =? and PaymentStatus = 'No' ;");
             show.setInt(1, Integer.parseInt(mID));
             ResultSet rs = show.executeQuery();
@@ -92,7 +92,7 @@ public class ShowPaymentData {
      public List showAllmerchantPayList(){
          List <MerchantPayment> payments = new LinkedList<MerchantPayment>();
         try {
-            PreparedStatement show = conn.prepareStatement("select * from M_payment order by MPay_Status;");
+            PreparedStatement show = conn.prepareStatement("select * from M_Payment order by MPay_Status;");
             ResultSet rs = show.executeQuery();
             while(rs.next()){
                 MerchantPayment payment = new MerchantPayment();

@@ -27,7 +27,6 @@ public class CheckServlet extends HttpServlet {
 
             // gets absolute path of the web application
             String appPath = request.getServletContext().getRealPath("");
-            appPath = appPath.replace(File.separator + "build" + File.separator + "web", "");
 
             // all for insert into database
             String id = request.getParameter("id");

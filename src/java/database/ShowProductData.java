@@ -49,7 +49,7 @@ public class ShowProductData {
             String sql = "select *,P_Price*P_SaleCount \"SaleAmount\" "
                     + "from Category "
                     + "natural join Product "
-                    + "natural join merchant where P_Status in('Yes','No');";
+                    + "natural join Merchant where P_Status in('Yes','No');";
             PreparedStatement data = conn.prepareStatement(sql);
             ResultSet rs = data.executeQuery();
             while(rs.next()){
@@ -85,7 +85,7 @@ public class ShowProductData {
             String sql = "select *,P_Price*P_SaleCount \"SaleAmount\" "
                     + "from Category "
                     + "natural join Product "
-                    + "natural join merchant where M_ID = ? and P_Status = 'Yes';";
+                    + "natural join Merchant where M_ID = ? and P_Status = 'Yes';";
             PreparedStatement data = conn.prepareStatement(sql);
             data.setString(1,mID);
             ResultSet rs = data.executeQuery();
@@ -160,7 +160,7 @@ public class ShowProductData {
             String sql = "select *,P_Price*P_SaleCount \"SaleAmount\" "
                     + " from Category "
                     + " natural join Product "
-                    + " natural join merchant where P_Status = 'Not';";
+                    + " natural join Merchant where P_Status = 'Not';";
             PreparedStatement data = conn.prepareStatement(sql);
             ResultSet rs = data.executeQuery();
             while(rs.next()){
@@ -195,7 +195,7 @@ public class ShowProductData {
             String sql = "select *,P_Price*P_SaleCount \"SaleAmount\" "
                     + " from Category "
                     + " natural join Product "
-                    + " natural join merchant where P_Status = 'Yes';";
+                    + " natural join Merchant where P_Status = 'Yes';";
             PreparedStatement data = conn.prepareStatement(sql);
             ResultSet rs = data.executeQuery();
             while(rs.next()){
@@ -227,7 +227,7 @@ public class ShowProductData {
     public double ShowSumSaleAmount(){
         double saleamount = 0;
         try {
-            PreparedStatement sum = conn.prepareStatement("select sum(r_cost) from reciept;");
+            PreparedStatement sum = conn.prepareStatement("select sum(r_cost) from Reciept;");
             ResultSet  rs =  sum.executeQuery();
             rs.next();
             saleamount = rs.getDouble(1);
