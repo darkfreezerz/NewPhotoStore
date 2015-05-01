@@ -48,25 +48,31 @@ public class SearchServlet extends HttpServlet {
                 picture.setAttribute("searchKeyWord", products);
 
                 picture.setAttribute("keyword", picname);
-                
+
                 response.sendRedirect("SearchResult.jsp");
 
             } else {
-                products = search.SearchKeyword(category);
+                if (category.equals("")) {
+                    products = search.SearchAll();
+                    HttpSession picture = request.getSession();
+                    picture.setAttribute("searchKeyWord", products);
 
-                HttpSession picture = request.getSession();
-                picture.setAttribute("searchKeyWord", products);
+                    picture.setAttribute("keyword", category);
+                } else {
+                    products = search.SearchKeyword(category);
 
-                picture.setAttribute("keyword", category);
-                
+                    HttpSession picture = request.getSession();
+                    picture.setAttribute("searchKeyWord", products);
+
+                    picture.setAttribute("keyword", category);
+                }
+
                 response.sendRedirect("SearchResult.jsp");
             }
 
             /*String search = request.getParameter("picturename");
             
              request.setAttribute("search", search);*/
-            
-
         }
     }
 

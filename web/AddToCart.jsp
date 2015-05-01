@@ -80,7 +80,7 @@
                                             <div class="container content"  >
                                                 <div id="tab-container-1"  align="center">
                                                     <div class="span-13" >
-                                                        <div class="tab" id="tab1" > <a href="#"><img src="Watermark<%=File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>"  /></a></div>
+                                                        <div class="tab" id="tab1" > <a href="#"><img src="Watermark<%=File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" style="max-width: 800px;max-height: 800px" /></a></div>
                                                         <div><br>
                                                                 <h1 style="font:bold; font-size: 35px" > <%= product.getName()%> </h1>
                                                         </div>
@@ -93,11 +93,11 @@
                                                                 <br> 
                                                                     <br>   
 
-                                                                        <div class="span-5 last" >
-                                                                            <h2 style="font:bold; font-size: 20px" >Description</h2><br>
-                                                                                <p style="font-size: 15px" ><%= product.getDescription()%> </p><br>
-                                                                                    <p style="font-size: 15px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
-                                                                                        <p style="font-size: 15px" >Price : <%= product.getPrice()%>$</p>
+                                                                        <div class="span-5 last" align="left" style="margin-left: 300px">
+                                                                            <h2 style="font:bold; font-size: 24px" >Description</h2><br>
+                                                                                <p style="font-size: 24px" ><%= product.getDescription()%> </p><br>
+                                                                                    <p style="font-size: 24px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
+                                                                                        <p style="font-size: 24px" >Price : $<%= product.getPrice()%></p>
 
                                                                                         </div><br>
                                                                                             <% if (session.getAttribute("role").equals("customer") && mp.CheckProductHave(product.getId(), (String) session.getAttribute("role"))) {%>

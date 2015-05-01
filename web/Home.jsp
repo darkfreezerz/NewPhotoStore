@@ -61,7 +61,7 @@
                 <li class="cd-label">Information</li>
                 <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Product</li>
-                <li><a href="ManageProduct.jsp">My Photo</a></li>
+                <li><a href="manage.do">My Photo</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
@@ -91,7 +91,7 @@
                 <li class="cd-label">Product</li>
                 <li><a href="enableproduct.do">Enable Photo</a></li>
                 <li><a href="manage.do">Delete Photo</a></li>
-                <li><a href="#0">Photo Information</a></li>
+             
                 <li class="cd-label">Payment</li>
                  <li><a href="#0">Set Payment</a></li>
                 <li class="cd-label">Follow us</li>
@@ -179,7 +179,7 @@
                                 <figcaption>Place</figcaption>
                             </figure>
                         </a> <a href="search.do?cat=People">
-                            <figure> <img src="\img/animal" width="200" height="200" alt="Red mushroom" />
+                            <figure> <img src="img/people.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>People</figcaption>
                             </figure>
                         </a> <a href="search.do?cat=Nature">

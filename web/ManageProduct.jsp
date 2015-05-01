@@ -136,15 +136,15 @@
                     </tr>
                 </thead>
                 <tbody class="table-hover">
+                    
                     <%for (Product product : products) {%>
                     <tr>
 
                         <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px" /></td>
                         <td class="text-left"><%=product.getName()%></td>
                         <td class="text-left">$<%=product.getPrice()%></td>
-
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Remove</a></td>
+                        <td class=""><a href="ShowProductInfo.jsp?pointer=<%=products.indexOf(product) %>" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="#" class="myButton">Download</a></td>
 
                     </tr>
                     <%}%>
@@ -178,8 +178,8 @@
                         <td class="text-left">$<%=product.getPrice()%></td>
                         <td class="text-left"><%=product.getDate()%></td>
                         <td class="text-left">$<%=product.getSaleAmount()%></td>
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Remove</a></td>
+                        <td class=""><a href="ShowProductInfo.jsp?pointer=<%=products.indexOf(product) %>" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="removephoto.do?index=<%=product.getId() %>" class="myButton">Remove</a></td>
 
                     </tr>
                     <%}%>
@@ -198,8 +198,10 @@
                         <th class="text-left">Price</th>
                         <th class="text-left">Date</th>
                         <th class="text-left">SaleAmount</th>
+                        
+                        <th class="text-left">Available Status</th>
                         <th class="text-left">Info</th>
-                        <th class="text-left">Delete</th>
+                        <th class="text-left">Delete/Restore</th>
 
 
                     </tr>
@@ -213,8 +215,9 @@
                         <td class="text-left">$<%=product.getPrice()%></td>
                         <td class="text-left"><%=product.getDate()%></td>
                         <td class="text-left">$<%=product.getSaleAmount()%></td>
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="removephoto.do?index=<%=product.getId() %>" class="myButton">Remove</a></td>
+                        <td class="text-left"><%=product.getStatus() %></td>
+                        <td class=""><a href="ShowProductInfo.jsp?pointer=<%=products.indexOf(product) %>" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="removephoto.do?index=<%=product.getId() %>&status=<%=product.getStatus() %>" class="myButton">Change</a></td>
 
                     </tr>
                     <%}%>

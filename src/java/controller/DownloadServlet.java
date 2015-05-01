@@ -16,12 +16,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 
 /**
  *
  * @author niponsarikan
  */
-@WebServlet(name = "DownloadServlet", urlPatterns = {"/DownloadServlet"})
+@WebServlet(name = "DownloadServlet", urlPatterns = {"/downloadservlet.do"})
 public class DownloadServlet extends HttpServlet {
 
     /**
@@ -36,7 +37,10 @@ public class DownloadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
         // reads input file from an absolute path
-        String filePath = "/Users/niponsarikan/Desktop/File/akaroa_new_zealand-wallpaper-3840x2160.jpg";
+        String appPath = request.getServletContext().getRealPath("");
+        String uid = request.getParameter("Uindex");
+        String pid= request.getParameter("Pindex");
+        String filePath = appPath +File.separator + "PhotoStore" + File.separator+uid+File.separator+pid+".jpg";
         File downloadFile = new File(filePath);
         FileInputStream inStream = new FileInputStream(downloadFile);
 
@@ -76,6 +80,7 @@ public class DownloadServlet extends HttpServlet {
 
         inStream.close();
         outStream.close();
+        response.sendRedirect("manage.do");
     }
-
+    
 }

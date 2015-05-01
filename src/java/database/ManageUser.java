@@ -85,15 +85,15 @@ public class ManageUser {
         }
     }
 
-    public void editcus(String C_ID, String C_Name, String C_LastName, String C_Password, String C_Email, String C_Tel) {
+    public void editcus(String C_ID, String C_Name, String C_LastName,  String C_Email, String C_Tel) {
         try {
             PreparedStatement edit = conn.prepareStatement("update Customer set c_name='" + C_Name + "',c_lastname='" 
-                    + C_LastName + "',c_password='"
-                    + C_Password + "',c_email='"
+                    + C_LastName 
+                     + "',c_email='"
                     + C_Email + "',c_tel='"
                     + C_Tel + "'"
-                    + "Where c_id='"
-                    + C_ID +"';");
+                    + "Where c_id="
+                    + C_ID );
             edit.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
@@ -101,22 +101,21 @@ public class ManageUser {
 
     }
 
-    public void editmer(String M_ID, String M_Name, String M_LastName, String M_Password, String M_Email, String M_Tel, String M_Paypal, String M_Address, String M_Distinct, String M_Province, String M_Zipcode, String M_Country) {
+    public void editmer(String M_ID, String M_Name, String M_LastName, String M_Email, String M_Tel, String M_Paypal, String M_Address, String M_Distinct, String M_Province, String M_Zipcode, String M_Country) {
 
         try {
-            PreparedStatement edit = conn.prepareStatement("update Merchant set m_name='" + M_Name + "',m_last_name='"
-                    + M_LastName + "',m_password='"
-                    + M_Password + "',m_Email='"
+            PreparedStatement edit = conn.prepareStatement("update Merchant set m_name='" + M_Name + "',m_lastname='"
+                    + M_LastName + "',m_Email='"
                     + M_Email + "',m_tel='"
                     + M_Tel + "',m_paypal='"
                     + M_Paypal + "',m_address='"
                     + M_Address + "',m_district='"
-                    + M_Distinct + "',m_province'"
-                    + M_Province + "',m_zipcode'"
-                    + M_Zipcode + "',m_country'"
+                    + M_Distinct + "',m_province='"
+                    + M_Province + "',m_zipcode='"
+                    + M_Zipcode + "',m_country='"
                     + M_Country + "'"
-                    + "Where m_id='"
-                    + M_ID +"';");
+                    + " Where m_id="
+                    + M_ID );
             edit.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ManageUser.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,5 +126,7 @@ public class ManageUser {
         ManageUser m = new ManageUser();
         m.editcus("11", "test" , "test", "test", "qwerty", "test");
     }*/
+
+    
 
 }

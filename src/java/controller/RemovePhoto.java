@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -36,7 +37,21 @@ public class RemovePhoto extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
            String id = request.getParameter("index");
             ManageProduct manage = new ManageProduct();
-            manage.removeProduct(id);
+            String status= request.getParameter("status");
+            
+            HttpSession session = request.getSession();
+            String role = (String) session.getAttribute("role");
+            if(role.equals("admin")){
+                if(status.equals("Yes")){
+                    manage.removeProduct(id);
+                }
+                else{
+                    manage.enProduct(id);
+                }
+            }
+            else{
+                manage.removeProduct(id);
+            }
             response.sendRedirect("manage.do");
         }
     }

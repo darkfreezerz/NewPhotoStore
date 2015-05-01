@@ -45,7 +45,7 @@
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
                         <%} else if (role.equals("customer")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="RegLog.jsp">Cart</a></li>
+                    <li><a href="AddToCart.jsp">Cart</a></li>
                         <%} else if (role.equals("merchant")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
 
@@ -55,28 +55,30 @@
                 </ul>
             </nav>
             <!-- cd-nav --> 
-
+        
             <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
         </header>
         <nav>
+            <!-- customer -->
             <ul class="cd-primary-nav">
                 <%if (role.equals("customer")) {%>
                 <li class="cd-label">Information</li>
-                <li><a href="#0">My Information</a></li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Product</li>
-                <li><a href="#0">My Photo</a></li>
+                <li><a href="manage.do">My Photo</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-
-                <%} else if (role.equals("merchant")) {%>
+                    
+                <!--merchant -->
+                 <%}else if (role.equals("merchant")) {%>
                 <li class="cd-label">Information</li>
-                <li><a href="#0">My Information</a></li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Manage</li>
-                <li><a href="#0">Add Photo</a></li>
-                <li><a href="#0">Remove Photo</a></li>
+                <li><a href="Upload.jsp">Add Photo</a></li>
+                <li><a href="manage.do">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
                 <li><a href="#0">Call Payment</a></li>
 
@@ -85,17 +87,17 @@
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-
-                <%} else if (role.equals("admin")) {%>
+                    
+                <%}else if (role.equals("admin")) {%>
                 <li class="cd-label">User</li>
-                <li><a href="#0">Merchant</a></li>
-                <li><a href="#0">Customer</a></li>
+                <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
+                <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
                 <li class="cd-label">Product</li>
-                <li><a href="#0">Enable Photo</a></li>
-                <li><a href="#0">Delete Photo</a></li>
-                <li><a href="#0">Photo Information</a></li>
+                <li><a href="enableproduct.do">Enable Photo</a></li>
+                <li><a href="manage.do">Delete Photo</a></li>
+             
                 <li class="cd-label">Payment</li>
-                <li><a href="#0">Set Payment</a></li>
+                 <li><a href="#0">Set Payment</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
@@ -104,6 +106,7 @@
                     <%}%>
             </ul>
         </nav>
+            
 
         <div class="shadow">
 
@@ -179,6 +182,8 @@
 
                     <%}%>
 
+                    <br><br><br>
+                    <a href="EditProfile.jsp" class="myButton" >Edit</a>
                     <br><br><br>
                 </div>
             </div>

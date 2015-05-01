@@ -49,7 +49,7 @@ public class ShowProductData {
             String sql = "select *,P_Price*P_SaleCount \"SaleAmount\" "
                     + "from Category "
                     + "natural join Product "
-                    + "natural join Merchant where P_Status in('Yes','No');";
+                    + "natural join Merchant where P_Status in('Yes','No') order by P_status desc;";
             PreparedStatement data = conn.prepareStatement(sql);
             ResultSet rs = data.executeQuery();
             while(rs.next()){
