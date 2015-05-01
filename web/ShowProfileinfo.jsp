@@ -4,30 +4,54 @@
     Author     : niponsarikan
 --%>
 
+<%@page import="bean.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!doctype html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Untitled Document</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
+        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />
+        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />
+        <meta name="author" content="Codrops" />
+        <link rel="shortcut icon" href="../favicon.ico">
         <link rel="stylesheet" href="css/reset.css">
-
-        <link rel="stylesheet" href="css/profile.css">
+        <link href="css/profile.css" rel="stylesheet" type="text/css">
         <!-- CSS reset -->
         <link rel="stylesheet" href="css/style.css">
         <link href="css/SearchBox.css" rel="stylesheet" type="text/css">
-        <!-- Resource style -->
-        <script src="js/modernizr.js"></script><!-- Modernizr -->
+        <link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
+        <link rel="stylesheet" type="text/css" href="css/table.css" />
+        <script src="js/modernizr.js"></script>
     </head>
 
     <body>
+        <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
         <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">Log In</a></li>
-                    <li><a href="#0">Register</a></li>
+                    <li><a href="reglog.html">About</a></li>
+                        <%
+
+                            String role = (String) session.getAttribute("role");
+                            if (role.equals("")) {
+
+                        %>
+
+                    <li><a href="RegLog.jsp">Login</a></li>
+                    <li><a href="RegLog.jsp#toregister">Register</a></li>
+                        <%} else if (role.equals("customer")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="RegLog.jsp">Cart</a></li>
+                        <%} else if (role.equals("merchant")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+
+                    <%} else if (role.equals("admin")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+                        <%}%>
                 </ul>
             </nav>
             <!-- cd-nav --> 
@@ -36,19 +60,48 @@
         </header>
         <nav>
             <ul class="cd-primary-nav">
-                <li class="cd-label">About us</li>
-                <li><a href="#0">The team</a></li>
-                <li><a href="#0">Our services</a></li>
-                <li><a href="#0">Our projects</a></li>
-                <li class="cd-label">Work with us</li>
-                <li><a href="#0">Start a project</a></li>
-                <li><a href="#0">Join In</a></li>
-                <li><a href="#0">Create an account</a></li>
+                <%if (role.equals("customer")) {%>
+                <li class="cd-label">Information</li>
+                <li><a href="#0">My Information</a></li>
+                <li class="cd-label">Product</li>
+                <li><a href="#0">My Photo</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+
+                <%} else if (role.equals("merchant")) {%>
+                <li class="cd-label">Information</li>
+                <li><a href="#0">My Information</a></li>
+                <li class="cd-label">Manage</li>
+                <li><a href="#0">Add Photo</a></li>
+                <li><a href="#0">Remove Photo</a></li>
+                <li class="cd-label">Payment</li>
+                <li><a href="#0">Call Payment</a></li>
+
+                <li class="cd-label">Follow us</li>
+                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+
+                <%} else if (role.equals("admin")) {%>
+                <li class="cd-label">User</li>
+                <li><a href="#0">Merchant</a></li>
+                <li><a href="#0">Customer</a></li>
+                <li class="cd-label">Product</li>
+                <li><a href="#0">Enable Photo</a></li>
+                <li><a href="#0">Delete Photo</a></li>
+                <li><a href="#0">Photo Information</a></li>
+                <li class="cd-label">Payment</li>
+                <li><a href="#0">Set Payment</a></li>
+                <li class="cd-label">Follow us</li>
+                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+                    <%}%>
             </ul>
         </nav>
 
@@ -56,49 +109,75 @@
 
             <div id="content-wrapper">
                 <div id="aboutme" class="active" >
-                    <h5 class="textborder">Profile</h5>
+                    <h5 class="textborder">My Profile Information</h5>
+                    <%if (role.equals("merchant")) {
+                            User user = new User();
+                            user = (User) session.getAttribute("profiledata");
 
+
+                    %>
                     <br><br>
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">First name</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getFirstname()%></h2></div>
 
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Last name</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getLastname()%></h2></div>
                     <br><br><br>
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Tel</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getPhone()%></h2></div>
 
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Email</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getEmail()%></h2></div>
+                    <br><br><br>
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Address</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
-                    <br><br><br>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getAddress()%></h2></div>
+
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Distinct</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getDistinct()%></h2></div>
 
-
-                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Province</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
                     <br><br><br>
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Province</h3>
+                        <h2 style="float:left; margin:10px; ">:: <%=user.getProvince()%>Y</h2></div>
+
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Country</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getCountry()%></h2></div>
 
-
-                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Zipcode</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
                     <br><br><br>
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Zipcode</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getZipcode()%></h2></div>
 
                     <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Paypal</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getPaypal()%></h2></div>
 
 
-                    <div class="box" style="display:inline-block; width:390px; opacity:0;" ><h3 style="float:left; margin:10px; ">First name</h3>
-                        <h2 style="float:left; margin:10px; ">:KUY</h2></div>
                     <br><br><br>
 
+                    <%} else if (role.equals("customer")) {
+                        User user = new User();
+                        user = (User) session.getAttribute("profiledata");
+                    %>
+                    <br><br>
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">First name</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getFirstname()%></h2></div>
+
+
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Last name</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getLastname()%></h2></div>
+                    <br><br><br>
+
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Tel</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getPhone()%></h2></div>
+
+                    <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Email</h3>
+                        <h2 style="float:left; margin:10px; ">: <%=user.getEmail()%></h2></div>
+
+
+                    <%}%>
 
                     <br><br><br>
                 </div>

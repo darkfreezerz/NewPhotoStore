@@ -59,7 +59,7 @@
             <ul class="cd-primary-nav">
                 <%if (role.equals("customer")) {%>
                 <li class="cd-label">Information</li>
-                <li><a href="#0">My Information</a></li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Product</li>
                 <li><a href="ManageProduct.jsp">My Photo</a></li>
                 <li class="cd-label">Follow us</li>
@@ -71,7 +71,7 @@
                 <!--merchant -->
                  <%}else if (role.equals("merchant")) {%>
                 <li class="cd-label">Information</li>
-                <li><a href="#0">My Information</a></li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Manage</li>
                 <li><a href="Upload.jsp">Add Photo</a></li>
                 <li><a href="manage.do">Remove Photo</a></li>
