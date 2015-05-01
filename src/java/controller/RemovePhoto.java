@@ -1,26 +1,25 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package controller;
 
-import bean.Product;
-import database.ShowProductData;
+import database.ManageProduct;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Locale;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author HenGzTy
  */
-@WebServlet(name = "ManageProductServlet", urlPatterns = {"/manage.do"})
-public class ManageProductServlet extends HttpServlet {
+@WebServlet(name = "RemovePhoto", urlPatterns = {"/removephoto.do"})
+public class RemovePhoto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,34 +34,10 @@ public class ManageProductServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            HttpSession session = request.getSession();
-            String role = (String) session.getAttribute("role");
-            String uid = (String) session.getAttribute("userid");
-            
-            List <Product> products = new LinkedList<Product>();
-            
-          
-            
-            ShowProductData spd = new ShowProductData();
-            
-            
-            
-            if(role.equals("admin")){
-                products = spd.ShowAllProduct();
-                session.setAttribute("searchadmin", products);
-            }else if(role.equals("customer")){
-                products = spd.ShowAllCustomerProduct(uid);
-                session.setAttribute("searchcustomer", products);
-            }else if(role.equals("merchant")){
-                
-                products = spd.ShowAllMerchantProduct(uid);
-                
-                session.setAttribute("searchmerchant", products);
-                
-            }
-           
-            response.sendRedirect("ManageProduct.jsp");
+           String id = request.getParameter("index");
+            ManageProduct manage = new ManageProduct();
+            manage.removeProduct(id);
+            response.sendRedirect("manage.do");
         }
     }
 

@@ -186,6 +186,41 @@
 
                 </tbody>
             </table>
+            <%} else if (role.equals("admin")) {
+                products = (List) session.getAttribute("searchadmin");
+            %>
+
+            <table class="table-fill">
+                <thead>
+                    <tr>
+                        <th class="text-left">Photo</th>
+                        <th class="text-left">Name</th>
+                        <th class="text-left">Price</th>
+                        <th class="text-left">Date</th>
+                        <th class="text-left">SaleAmount</th>
+                        <th class="text-left">Info</th>
+                        <th class="text-left">Delete</th>
+
+
+                    </tr>
+                </thead>
+                <tbody class="table-hover">
+                    <%for (Product product : products) {%>
+                    <tr>
+
+                        <td class=""> <img src="PhotoStore<%=File.separator + product.getmID() + File.separator + product.getAddress()%>" style="max-height: 200px ;max-width: 200px"/></td>
+                        <td class="text-left"><%=product.getName()%></td>
+                        <td class="text-left">$<%=product.getPrice()%></td>
+                        <td class="text-left"><%=product.getDate()%></td>
+                        <td class="text-left">$<%=product.getSaleAmount()%></td>
+                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="removephoto.do?index=<%=product.getId() %>" class="myButton">Remove</a></td>
+
+                    </tr>
+                    <%}%>
+
+                </tbody>
+            </table>
 
 
             <%}%>

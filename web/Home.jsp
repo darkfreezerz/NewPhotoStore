@@ -90,7 +90,7 @@
                 <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
                 <li class="cd-label">Product</li>
                 <li><a href="enableproduct.do">Enable Photo</a></li>
-                <li><a href="#0">Delete Photo</a></li>
+                <li><a href="manage.do">Delete Photo</a></li>
                 <li><a href="#0">Photo Information</a></li>
                 <li class="cd-label">Payment</li>
                  <li><a href="#0">Set Payment</a></li>
