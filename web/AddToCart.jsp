@@ -45,33 +45,82 @@
                         <div>
                             <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
                             <header class="cd-header">
-                                <nav>
-                                    <ul class="cd-secondary-nav">
-                                        <li><a href="#0">Log In</a></li>
-                                        <li><a href="#0">Register</a></li>
-                                    </ul>
-                                </nav>
-                                <!-- cd-nav --> 
+            <nav>
+                <ul class="cd-secondary-nav">
+                    <li><a href="reglog.html">About</a></li>
+                        <%
 
-                                <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
-                            </header>
-                            <nav>
-                                <ul class="cd-primary-nav">
-                                    <li class="cd-label">About us</li>
-                                    <li><a href="#0">The team</a></li>
-                                    <li><a href="#0">Our services</a></li>
-                                    <li><a href="#0">Our projects</a></li>
-                                    <li class="cd-label">Work with us</li>
-                                    <li><a href="#0">Start a project</a></li>
-                                    <li><a href="#0">Join In</a></li>
-                                    <li><a href="#0">Create an account</a></li>
-                                    <li class="cd-label">Follow us</li>
-                                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-                                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-                                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-                                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                                </ul>
-                            </nav>
+                            String role = (String) session.getAttribute("role");
+                            if (role.equals("")) {
+
+                        %>
+
+                    <li><a href="RegLog.jsp">Login</a></li>
+                    <li><a href="RegLog.jsp#toregister">Register</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
+                        <%} else if (role.equals("customer")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="AddToCart.jsp">Cart</a></li>
+                        <%} else if (role.equals("merchant")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+
+                    <%} else if (role.equals("admin")) {%>
+                    <li><a href="RegLog.jsp">Log out</a></li>
+                        <%}%>
+                </ul>
+            </nav>
+            <!-- cd-nav --> 
+        
+            <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
+        </header>
+        <nav>
+            <!-- customer -->
+            <ul class="cd-primary-nav">
+                <%if (role.equals("customer")) {%>
+                <li class="cd-label">Information</li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
+                <li class="cd-label">Product</li>
+                <li><a href="manage.do">My Photo</a></li>
+                <li class="cd-label">Follow us</li>
+                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+                    
+                <!--merchant -->
+                 <%}else if (role.equals("merchant")) {%>
+                <li class="cd-label">Information</li>
+                <li><a href="showprofileinfo.do">My Information</a></li>
+                <li class="cd-label">Manage</li>
+                <li><a href="Upload.jsp">Add Photo</a></li>
+                <li><a href="manage.do">Remove Photo</a></li>
+                <li class="cd-label">Payment</li>
+                <li><a href="showcallpayment.do">Call Payment</a></li>
+
+                <li class="cd-label">Follow us</li>
+                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+                    
+                <%}else if (role.equals("admin")) {%>
+                <li class="cd-label">User</li>
+                <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
+                <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
+                <li class="cd-label">Product</li>
+                <li><a href="enableproduct.do">Enable Photo</a></li>
+                <li><a href="manage.do">Delete Photo</a></li>
+             
+                <li class="cd-label">Payment</li>
+                 <li><a href="showrequestpayment.do">Set Payment</a></li>
+                <li class="cd-label">Follow us</li>
+                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+                    <%}%>
+            </ul>
+        </nav>
 
                             <br>
                                 <br>

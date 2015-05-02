@@ -24,7 +24,7 @@
          ' by the shopping cart page
          '------------------------------------
          */
-        String finalPaymentAmount = session.getAttribute("Payment_Amount").toString();
+        String finalPaymentAmount = session.getAttribute("amount").toString();
         /*
          '------------------------------------
          ' Calls the DoExpressCheckoutPayment API call
@@ -48,8 +48,7 @@
              '********************************************************************************************************************
              */
             
-            out.println(nvp);
-            
+        
             String transactionId = nvp.get("PAYMENTINFO_0_TRANSACTIONID").toString(); // ' Unique transaction ID of the payment. Note:  If the PaymentAction of the request was Authorization or Order, this value is your AuthorizationID for use with the Authorization & Capture APIs. 
             String transactionType = nvp.get("PAYMENTINFO_0_TRANSACTIONTYPE").toString(); //' The type of transaction Possible values: l  cart l  express-checkout 
             String paymentType = nvp.get("PAYMENTINFO_0_PAYMENTTYPE").toString();  //' Indicates whether the payment is instant or delayed. Possible values: l  none l  echeck l  instant 
@@ -99,5 +98,6 @@
             String ErrorSeverityCode = nvp.get("L_SEVERITYCODE0").toString();
         }
     }
+    response.sendRedirect("complete.do");
 
 %>

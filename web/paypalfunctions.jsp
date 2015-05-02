@@ -174,7 +174,7 @@
         nvpStr = nvpStr + "&PAYMENTREQUEST_0_SHIPTOCITY=" + shipToCity + "&PAYMENTREQUEST_0_SHIPTOSTATE=" + shipToState + "&PAYMENTREQUEST_0_SHIPTOCOUNTRYCODE=" + shipToCountryCode;
         nvpStr = nvpStr + "&PAYMENTREQUEST_0_SHIPTOZIP=" + shipToZip + "&PAYMENTREQUEST_0_SHIPTOPHONENUM" + phoneNum;
         
-        nvpStr = nvpStr+"&L_PAYMENTREQUEST_0_NAME0=10% Decaf Kona Blend Coffee  "+"&L_PAYMENTREQUEST_0_AMT0="+paymentAmount+"&PAYMENTREQUEST_0_ITEMAMT="+paymentAmount+"&L_PAYMENTREQUEST_0_NAME0=10% Decaf Kona Blend Coffee  ";
+        //nvpStr = nvpStr+"&L_PAYMENTREQUEST_0_NAME0=10% Decaf Kona Blend Coffee  "+"&L_PAYMENTREQUEST_0_AMT0="+paymentAmount+"&PAYMENTREQUEST_0_ITEMAMT="+paymentAmount+"&L_PAYMENTREQUEST_0_NAME0=10% Decaf Kona Blend Coffee  ";
         
       // Compare With PHP
         /* $nvpstr="&PAYMENTREQUEST_0_AMT=". $paymentAmount;

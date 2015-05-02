@@ -30,7 +30,7 @@
 
     <body>
         <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
-        <header class="cd-header">
+       <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
                     <li><a href="reglog.html">About</a></li>
@@ -43,6 +43,7 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
                         <%} else if (role.equals("customer")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
                     <li><a href="AddToCart.jsp">Cart</a></li>
@@ -80,7 +81,7 @@
                 <li><a href="Upload.jsp">Add Photo</a></li>
                 <li><a href="manage.do">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
-                <li><a href="#0">Call Payment</a></li>
+                <li><a href="showcallpayment.do">Call Payment</a></li>
 
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
@@ -97,7 +98,7 @@
                 <li><a href="manage.do">Delete Photo</a></li>
              
                 <li class="cd-label">Payment</li>
-                 <li><a href="#0">Set Payment</a></li>
+                 <li><a href="showrequestpayment.do">Set Payment</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>

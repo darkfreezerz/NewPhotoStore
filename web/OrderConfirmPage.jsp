@@ -11,7 +11,7 @@
      */
 
     String token = (String) (session.getAttribute("TOKEN"));
-    out.print(token);
+    
 
     if (token != null) {
 %>
@@ -28,7 +28,7 @@
         HashMap nvp = GetShippingDetails(token, session);
         String strAck = nvp.get("ACK").toString();
 
-       out.println(nvp);
+       
 
         if (strAck != null && (strAck.equalsIgnoreCase("Success") || strAck.equalsIgnoreCase("SuccessWithWarning"))) {
             
@@ -67,9 +67,7 @@
         }
 
     }
+    response.sendRedirect("ConfirmTransaction.jsp");
 
 %>
 
-<form action="ConfirmTransaction.jsp" method="POST">
-    <input type="submit" value="Confirm" />
-</form>

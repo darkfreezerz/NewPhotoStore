@@ -69,7 +69,7 @@ public class ShowPaymentData {
     }
     
     public int SaleCount(String p_id){
-        int salecount = 0;
+        int salecount = 1;
         try {
             PreparedStatement count = conn.prepareStatement("select count(p_id) from Order_Des where P_ID = ? and PaymentStatus = 'No'");
             count.setInt(1, Integer.parseInt(p_id));
@@ -92,13 +92,15 @@ public class ShowPaymentData {
      public List showAllmerchantPayList(){
          List <MerchantPayment> payments = new LinkedList<MerchantPayment>();
         try {
-            PreparedStatement show = conn.prepareStatement("select * from M_Payment order by MPay_Status;");
+            PreparedStatement show = conn.prepareStatement("select * from M_Payment natural join Merchant where MPay_Status ='No';");
             ResultSet rs = show.executeQuery();
             while(rs.next()){
                 MerchantPayment payment = new MerchantPayment();
                 payment.setMpayId(rs.getInt("MPay_ID"));
                 payment.setMpayStatus(rs.getString("MPay_Status"));
                 payment.setMpaycost(rs.getDouble("MPay_Cost"));
+                payment.setMname(rs.getString("M_Name"));
+                payment.setMlast(rs.getString("M_LastName"));
                 payment.setMpaydate(rs.getString("MPay_Date"));
                 payment.setaID(rs.getInt("A_ID"));
                 payment.setmID(rs.getInt("M_ID"));
@@ -112,7 +114,9 @@ public class ShowPaymentData {
      }
     public static void main(String[] args){
         ShowPaymentData a = new ShowPaymentData();
-        System.out.println(a.SaleCount("7"));
+        List <ProductSold> products = new LinkedList<ProductSold>();
+      products = a.showMerchantSale("1");
+        System.out.println(products.get(0).getSale_amount());
     }
          
 }

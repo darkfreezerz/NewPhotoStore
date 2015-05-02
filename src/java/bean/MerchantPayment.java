@@ -17,6 +17,24 @@ public class MerchantPayment {
     int aID;
     String Mpaydate;
     String MPaypal;
+    String Mname;
+    String Mlast;
+
+    public String getMname() {
+        return Mname;
+    }
+
+    public void setMname(String Mname) {
+        this.Mname = Mname;
+    }
+
+    public String getMlast() {
+        return Mlast;
+    }
+
+    public void setMlast(String Mlast) {
+        this.Mlast = Mlast;
+    }
 
     public String getMPaypal() {
         return MPaypal;

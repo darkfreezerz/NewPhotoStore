@@ -39,6 +39,7 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
                         <%} else if (role.equals("customer")) {%>
                     <li><a href="RegLog.jsp">Log out</a></li>
                     <li><a href="AddToCart.jsp">Cart</a></li>
@@ -76,7 +77,7 @@
                 <li><a href="Upload.jsp">Add Photo</a></li>
                 <li><a href="manage.do">Remove Photo</a></li>
                 <li class="cd-label">Payment</li>
-                <li><a href="#0">Call Payment</a></li>
+                <li><a href="showcallpayment.do">Call Payment</a></li>
 
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
@@ -93,7 +94,7 @@
                 <li><a href="manage.do">Delete Photo</a></li>
              
                 <li class="cd-label">Payment</li>
-                 <li><a href="#0">Set Payment</a></li>
+                 <li><a href="showrequestpayment.do">Set Payment</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
@@ -105,11 +106,11 @@
             
            
         <section class="cd-intro">
-            <h1>Full-Screen Pop-Out Naviion</h1>
+            <h1>Best Photo with you</h1>
         </section>
         <main class="cd-main-content">
             <div class="cd-container">
-                <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, quos, voluptate, sunt, in suscipit quibusdam quis dignissimos eligendi repellendus ipsam exercitationem adipisci nostrum fugit accusamus quae cum nisi accusantium eaque. </p>
+                <p> <br><br><br><br><br><br></p>
                 <form action="search.do" method="post" class="form-wrapper cf">
                     <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
                     <button type="submit"  >Search</button>

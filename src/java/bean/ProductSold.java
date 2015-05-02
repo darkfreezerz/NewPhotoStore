@@ -17,7 +17,7 @@ public class ProductSold {
     private int p_salecount;
     private double p_price;
     private String payment_status;
-    private double sale_amount;
+    double sale_amount;
     
     public ProductSold(){
         
@@ -95,7 +95,7 @@ public class ProductSold {
     }
 
     public void setSale_amount(double sale_amout) {
-        this.sale_amount = sale_amount;
+        this.sale_amount = sale_amout;
     }
     
     

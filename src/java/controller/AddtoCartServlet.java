@@ -45,7 +45,7 @@ public class AddtoCartServlet extends HttpServlet {
             Product product = products.get(Integer.parseInt(index));
             
             Cart cart = (Cart) session.getAttribute("cart");
-            cart = null;
+     
             
             if(cart == null ){
                 cart = new Cart();

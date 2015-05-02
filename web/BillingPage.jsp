@@ -6,9 +6,8 @@
 %>
 <%@include file= "paypalfunctions.jsp" %>
 <%  
-    String PaymentOption = (String) session.getAttribute("pay");
-    //out.print(PaymentOption);
-   
+    String PaymentOption = "Paypal";
+ 
     
     if (PaymentOption.equals("Paypal")) {
         
@@ -21,7 +20,8 @@
          '------------------------------------
          */
         
-        String paymentAmount = (String) session.getAttribute("Payment_Amount");
+        String paymentAmount = request.getParameter("amount");
+        session.setAttribute("amount", paymentAmount);
 
         /*
          '------------------------------------
@@ -40,7 +40,7 @@
          ' This is set to the value entered on the Integration Assistant 
          '------------------------------------
          */
-        String returnURL = "http://localhost:8080/Paypal/OrderConfirmPage.jsp";
+        String returnURL = "http://localhost:8080/Photo/OrderConfirmPage.jsp";
 
         /*
          '------------------------------------
@@ -50,7 +50,7 @@
          ' This is set to the value entered on the Integration Assistant 
          '------------------------------------
          */
-        String cancelURL = "http://localhost:8080/Paypal/";
+        String cancelURL = "http://localhost:8080/Photo/";
 
         /*
          '------------------------------------
