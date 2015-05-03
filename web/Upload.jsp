@@ -27,11 +27,12 @@
 
 
         <div>
-            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
+            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"><a href="Home.jsp"> <img src="img/web-logo.png" width="100" height="50"  style="float:left;margin-left:50px;margin-top:15px"> </a> </div>
             <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">About</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
+                 
                         <%
 
                             String role = (String) session.getAttribute("role");
@@ -41,15 +42,16 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
-                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%} else if (role.equals("customer")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="AddToCart.jsp">Cart</a></li>
+                    
+                    <li><a href="ShowCart.jsp">Cart</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%} else if (role.equals("merchant")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
 
                     <%} else if (role.equals("admin")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%}%>
                 </ul>
             </nav>
@@ -116,7 +118,7 @@
 
                     <h1 style="float:left; margin:10px;">Name</h1>
                     <input type="name" name="namepic"	 	style="margin:10px;width:710px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
-                    <h1 style="float:left; margin:10px;">Price</h1><br><br>
+                    <h1 style="float:left; margin:10px;">Price (USD)</h1><br><br>
                     <input type="price" name="pricepic" 	style="margin:10px;width:200px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
                     <h1 style="float:left; margin:10px;">Catalog</h1>
                     <div class="dropdown" style="margin-left:10px;">

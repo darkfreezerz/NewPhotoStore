@@ -130,5 +130,20 @@ public class ManagePayment {
             Logger.getLogger(ManagePayment.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void addSalecount(List<Product> cart){
+         ManagePayment manage = new ManagePayment();
+        try {
+            for (Product product : cart ) {
+                PreparedStatement add = conn.prepareStatement("update Product set P_SaleCount= P_SaleCount+1 where P_ID=1;");
+                add.setInt(1,Integer.parseInt(product.getId()));
+                add.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManagePayment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
 
 }

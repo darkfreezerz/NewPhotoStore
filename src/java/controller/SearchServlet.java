@@ -59,7 +59,7 @@ public class SearchServlet extends HttpServlet {
 
                     picture.setAttribute("keyword", category);
                 } else {
-                    products = search.SearchKeyword(category);
+                    products = search.SearchCategory(category);
 
                     HttpSession picture = request.getSession();
                     picture.setAttribute("searchKeyWord", products);

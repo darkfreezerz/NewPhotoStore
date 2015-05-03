@@ -2,6 +2,7 @@ package controller;
 
 import bean.Product;
 import database.Cart;
+import database.ManageProduct;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
@@ -35,29 +36,35 @@ public class AddtoCartServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
 
-            String index =  request.getParameter("pointer");
-            
+            String index = request.getParameter("pointer");
+
             HttpSession session = request.getSession(true);
             List<Product> products = new LinkedList<Product>();
-            
-            products = (List) session.getAttribute("searchKeyWord");
-            
-            Product product = products.get(Integer.parseInt(index));
-            
-            Cart cart = (Cart) session.getAttribute("cart");
-     
-            
-            if(cart == null ){
-                cart = new Cart();
-                cart.addItem(product.getId());
-            }else{
-                cart.addItem(product.getId());
-            }
-            
-            session.setAttribute("cart", cart);
-           
-            response.sendRedirect("ShowCart.jsp");
 
+            products = (List) session.getAttribute("searchKeyWord");
+
+            Product product = products.get(Integer.parseInt(index));
+
+            Cart cart = (Cart) session.getAttribute("cart");
+            ManageProduct manage = new ManageProduct();
+            String userid = (String) session.getAttribute("userid");
+            boolean flag = manage.CheckProductHave(product.getId(), userid);
+
+            if (cart == null) {
+                cart = new Cart();
+                if (flag) {
+                    cart.addItem(product.getId());
+                }
+            } else {
+                if (flag) {
+                    cart.addItem(product.getId());
+                }
+            }
+
+            session.setAttribute("cart", cart);
+            session.setAttribute("cartflag", 1);
+
+            response.sendRedirect("ShowCart.jsp");
 
         }
     }

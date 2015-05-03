@@ -29,7 +29,8 @@
         <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">About</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%
 
                             String role = (String) session.getAttribute("role");
@@ -39,15 +40,16 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
-                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%} else if (role.equals("customer")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="AddToCart.jsp">Cart</a></li>
+                    
+                    <li><a href="ShowCart.jsp">Cart</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%} else if (role.equals("merchant")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
 
                     <%} else if (role.equals("admin")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%}%>
                 </ul>
             </nav>
@@ -171,39 +173,39 @@
                     <br>
                     <h1 style="font-size:18px;text-align:Center">Explore mutiple category of images,at ridiculously great prices.</h1>
                     <br>
-                    <div id="polaroid"> <a href="search.do?cat=Animal">
+                    <div id="polaroid"> <a href="search.do?cat=4">
                             <figure> <img src="img/animal.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Animal</figcaption>
                             </figure>
-                        </a> <a href="search.do?cat=Place">
+                        </a> <a href="search.do?cat=2">
                             <figure> <img src="img/place.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Place</figcaption>
                             </figure>
-                        </a> <a href="search.do?cat=People">
+                        </a> <a href="search.do?cat=1">
                             <figure> <img src="img/people.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>People</figcaption>
                             </figure>
-                        </a> <a href="search.do?cat=Nature">
+                        </a> <a href="search.do?cat=3">
                             <figure> <img src="img/nature.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Nature</figcaption>
                             </figure>
-                        </a> <a href="search.do?cat=Food">
+                        </a> <a href="search.do?cat=5">
                             <figure> <img src="img/food.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Food</figcaption>
                             </figure>
-                        </a> <a href="search.do?cat=Graphic">
+                        </a> <a href="search.do?cat=6">
                             <figure> <img src="img/graphic.jpg" width="200" height="200" alt="Red mushroom" />
                                 <figcaption>Graphic</figcaption>
                             </figure>
                         </a>
                         </figure>
-                    </a> <a href="search.do?cat=Things">
+                    </a> <a href="search.do?cat=7">
                     <figure> <img src="img/things.jpg" width="200" height="200" alt="Red mushroom" />
                         <figcaption>Things</figcaption>
                     </figure>
                 </a>
                 </figure>
-            </a> <a href="reglog.html">
+            </a> <a href="search.do?cat=8">
             <figure> <img src="img/other.jpg" width="200" height="200" alt="Red mushroom" />
                 <figcaption>Other</figcaption>
             </figure>

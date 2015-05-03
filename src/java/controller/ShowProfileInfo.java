@@ -9,6 +9,8 @@ import bean.User;
 import database.ShowUserData;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,15 +44,32 @@ public class ShowProfileInfo extends HttpServlet {
            String userid = (String) session.getAttribute("userid");
            ShowUserData show = new ShowUserData();
            User user = new User();
+             List<User> users = new LinkedList<User>();
            if(role.equals("merchant")){
                user = show.showMerchantData(userid);
                session.setAttribute("profiledata", user);
+                response.sendRedirect("ShowProfileinfo.jsp");
+           }
+           else if(role.equals("admin")){
+               String id = (String) request.getParameter("index");
+               String userrole = (String) session.getAttribute("managerole");
+               if(userrole.equals("merchant")){
+                   user = show.showMerchantData(id);
+                   session.setAttribute("profiledata", user);
+               }
+               else{
+                   user = show.showCustomerData(id);
+                   session.setAttribute("profiledata", user);
+               }
+              
+                response.sendRedirect("Showprofileforad.jsp");
            }
            else{
                user = show.showCustomerData(userid);
                session.setAttribute("profiledata", user);
+                response.sendRedirect("ShowProfileinfo.jsp");
            }
-           response.sendRedirect("ShowProfileinfo.jsp");
+          
         }
     }
 

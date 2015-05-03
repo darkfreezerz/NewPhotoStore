@@ -34,84 +34,86 @@
     </head>
     <body>
         <div>
-            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
-           <header class="cd-header">
-            <nav>
-                <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">About</a></li>
-                        <%
+            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <a href="Home.jsp"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </a> </div>
+            <header class="cd-header">
+                <nav>
+                    <ul class="cd-secondary-nav">
+                        <li><a href="Home.jsp">Home</a></li>
+                       
+                            <%
 
-                            String role = (String) session.getAttribute("role");
-                            if (role.equals("")) {
+                                String role = (String) session.getAttribute("role");
+                                if (role.equals("")) {
 
-                        %>
+                            %>
 
-                    <li><a href="RegLog.jsp">Login</a></li>
-                    <li><a href="RegLog.jsp#toregister">Register</a></li>
-                    <li><a href="Home.jsp">Home</a></li>
+                        <li><a href="RegLog.jsp">Login</a></li>
+                        <li><a href="RegLog.jsp#toregister">Register</a></li>
+
                         <%} else if (role.equals("customer")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="AddToCart.jsp">Cart</a></li>
-                        <%} else if (role.equals("merchant")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+
+                        <li><a href="ShowCart.jsp">Cart</a></li>
+                        <li><a href="logout.do">Log out</a></li>
+                            <%} else if (role.equals("merchant")) {%>
+                        <li><a href="logout.do">Log out</a></li>
+
+                        <%} else if (role.equals("admin")) {%>
+                        <li><a href="logout.do">Log out</a></li>
+                            <%}%>
+                    </ul>
+                </nav>
+                <!-- cd-nav --> 
+
+                <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
+            </header>
+            <nav>
+                <!-- customer -->
+                <ul class="cd-primary-nav">
+                    <%if (role.equals("customer")) {%>
+                    <li class="cd-label">Information</li>
+                    <li><a href="showprofileinfo.do">My Information</a></li>
+                    <li class="cd-label">Product</li>
+                    <li><a href="manage.do">My Photo</a></li>
+                    <li class="cd-label">Follow us</li>
+                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
+
+                    <!--merchant -->
+                    <%} else if (role.equals("merchant")) {%>
+                    <li class="cd-label">Information</li>
+                    <li><a href="showprofileinfo.do">My Information</a></li>
+                    <li class="cd-label">Manage</li>
+                    <li><a href="Upload.jsp">Add Photo</a></li>
+                    <li><a href="manage.do">Remove Photo</a></li>
+                    <li class="cd-label">Payment</li>
+                    <li><a href="showcallpayment.do">Call Payment</a></li>
+
+                    <li class="cd-label">Follow us</li>
+                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
 
                     <%} else if (role.equals("admin")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li class="cd-label">User</li>
+                    <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
+                    <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
+                    <li class="cd-label">Product</li>
+                    <li><a href="enableproduct.do">Enable Photo</a></li>
+                    <li><a href="manage.do">Delete Photo</a></li>
+
+                    <li class="cd-label">Payment</li>
+                    <li><a href="showrequestpayment.do">Set Payment</a></li>
+                    <li class="cd-label">Follow us</li>
+                    <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
+                    <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
+                    <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
+                    <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
                         <%}%>
                 </ul>
             </nav>
-            <!-- cd-nav --> 
-        
-            <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
-        </header>
-        <nav>
-            <!-- customer -->
-            <ul class="cd-primary-nav">
-                <%if (role.equals("customer")) {%>
-                <li class="cd-label">Information</li>
-                <li><a href="showprofileinfo.do">My Information</a></li>
-                <li class="cd-label">Product</li>
-                <li><a href="manage.do">My Photo</a></li>
-                <li class="cd-label">Follow us</li>
-                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                    
-                <!--merchant -->
-                 <%}else if (role.equals("merchant")) {%>
-                <li class="cd-label">Information</li>
-                <li><a href="showprofileinfo.do">My Information</a></li>
-                <li class="cd-label">Manage</li>
-                <li><a href="Upload.jsp">Add Photo</a></li>
-                <li><a href="manage.do">Remove Photo</a></li>
-                <li class="cd-label">Payment</li>
-                <li><a href="showcallpayment.do">Call Payment</a></li>
-
-                <li class="cd-label">Follow us</li>
-                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                    
-                <%}else if (role.equals("admin")) {%>
-                <li class="cd-label">User</li>
-                <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
-                <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
-                <li class="cd-label">Product</li>
-                <li><a href="enableproduct.do">Enable Photo</a></li>
-                <li><a href="manage.do">Delete Photo</a></li>
-             
-                <li class="cd-label">Payment</li>
-                 <li><a href="showrequestpayment.do">Set Payment</a></li>
-                <li class="cd-label">Follow us</li>
-                <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
-                <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
-                <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
-                <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                    <%}%>
-            </ul>
-        </nav>
 
 
             <br>
@@ -123,96 +125,97 @@
                 </div>
                 <br>
                 <br>
-            
+
             </div>
-            <%double salesum = (double) session.getAttribute("salesum");%>
-            SaleSum Amount : $<%=salesum%> <br> <br>
-            Payment Amount : $<%=salesum * 0.7%> 
-            <%if ((salesum * 0.7) > 20) { %>
-            <a href="paymentservlet.do" class="myButton">Call Payment</a>
-           
-            
-            <%}%>
-            
+
             <%
                 List<ProductSold> products = new LinkedList<ProductSold>();
                 if (role.equals("merchant")) {
-                    products = (List<ProductSold>) session.getAttribute("mproductsold");
-            %>
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Photo</th>
-                        <th class="text-left">Name</th>
-                        <th class="text-left">Sale Count</th>
-                        <th class="text-left">Price</th>
-                        <th class="text-left">Sale Amount</th>
-
-
-
-                    </tr>
-                </thead>
-                <tbody class="table-hover">
-                    <%for (ProductSold product : products) {%>
-                    <tr>
-
-
-                        <td class=""> <img src="PhotoStore<%=File.separator + product.getM_id() + File.separator + product.getP_address()%>" style="max-height: 200px ;max-width: 200px" /></td>
-                        <td class="text-left"><%=product.getP_name()%></td>
-                        <td class="text-left"><%=product.getP_salecount()%></td>
-                        <td class="text-left">$<%=product.getP_price()%></td>
-                        <td class="text-left">$<%=product.getP_salecount()%></td>
-
-
-                    </tr>
-                    <%}%>
-
-                </tbody>
-            </table>
-            <%} else if (role.equals("admin")) {
-                List<MerchantPayment> payment = new LinkedList<MerchantPayment>();
-                payment = (List<MerchantPayment>) session.getAttribute("merchantpayment");
-
-            %>
-            <table class="table-fill">
-                <thead>
-                    <tr>
-                        <th class="text-left">Name</th>
-                        <th class="text-left">Cost</th>
-                        <th class="text-left">Paypal Account</th>
-                        <th class="text-left">Date</th>
-
-                        <th class="text-left">Manage</th>
-
-
-
-
-                    </tr>
-                </thead>
-                <tbody class="table-hover">
-                    <%for (MerchantPayment merchant : payment) {%>
-                    <tr>
-
-                        <td class="text-left"><%=merchant.getMname() + " " + merchant.getMlast()%></td>
-                        <td class="text-left"><%=merchant.getMpaycost()%></td>
-                        <td class="text-left">$<%=merchant.getMPaypal()%></td>
-                        <td class="text-left">$<%=merchant.getMpaydate()%></td>
-                        <td class=""><a href="paymentservlet.do?paypal=<%=merchant.getMPaypal() %>" class="myButton">Pay</a></td>
-
-
-                    </tr>
-                    <%}%>
-
-                </tbody>
-            </table>
+                    double salesum = (double) session.getAttribute("salesum");%>
+            SaleSum Amount : $<%= salesum%> <br> <br>
+            Payment Amount(Subtract 30%) : $<%=salesum * 0.7%> <br><br><br>
+            <%if ((salesum * 0.7) > 20) { %>
+            <a href="paymentservlet.do" class="myButton">Call Payment</a>
 
 
             <%}%>
+            <br><br><br>
+            <%products = (List<ProductSold>) session.getAttribute("mproductsold");%>
+                
+                <table class="table-fill">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Photo</th>
+                            <th class="text-left">Name</th>
+                            <th class="text-left">Sale Count</th>
+                            <th class="text-left">Price</th>
+                            <th class="text-left">Sale Amount</th>
 
-            <script src="js/jquery-2.1.1.js"></script> 
-            <script src="js/main.js"></script>
+
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                        <%for (ProductSold product : products) {%>
+                        <tr>
+
+
+                            <td class=""> <img src="PhotoStore<%=File.separator + product.getM_id() + File.separator + product.getP_address()%>" style="max-height: 200px ;max-width: 200px" /></td>
+                            <td class="text-left"><%=product.getP_name()%></td>
+                            <td class="text-left"><%=product.getP_salecount()%></td>
+                            <td class="text-left">$<%=product.getP_price()%></td>
+                            <td class="text-left">$<%=product.getSale_amount()%></td>
+
+
+                        </tr>
+                        <%}%>
+
+                    </tbody>
+                </table>
+                <%} else if (role.equals("admin")) {
+                    List<MerchantPayment> payment = new LinkedList<MerchantPayment>();
+                    payment = (List<MerchantPayment>) session.getAttribute("merchantpayment");
+
+                %>
+                <table class="table-fill">
+                    <thead>
+                        <tr>
+                            <th class="text-left">Name</th>
+                            <th class="text-left">Cost</th>
+                            <th class="text-left">Paypal Account</th>
+                            <th class="text-left">Date</th>
+
+                            <th class="text-left">Manage</th>
 
 
 
-    </body>
-</html>
+
+                        </tr>
+                    </thead>
+                    <tbody class="table-hover">
+                        <%for (MerchantPayment merchant : payment) {%>
+                        <tr>
+
+                            <td class="text-left"><%=merchant.getMname() + " " + merchant.getMlast()%></td>
+                            <td class="text-left"><%=merchant.getMpaycost()%></td>
+                            <td class="text-left"><%=merchant.getMPaypal()%></td>
+                            <td class="text-left"><%=merchant.getMpaydate()%></td>
+                            <td class=""><a href="paymentservlet.do?paypal=<%=merchant.getMPaypal()%>&mpay=<%=merchant.getMpaycost() %>&pindex=<%=merchant.getMpayId() %>" class="myButton">Pay</a></td>
+
+
+                        </tr>
+                        <%}%>
+
+                    </tbody>
+                </table>
+
+
+                <%}%>
+
+                <script src="js/jquery-2.1.1.js"></script> 
+                <script src="js/main.js"></script>
+
+
+
+                </body>
+                </html>

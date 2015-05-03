@@ -31,11 +31,12 @@
     </head>
     <body>
         <div>
-            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
-           <header class="cd-header">
+            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <a href="Home.jsp"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </a></div>
+          <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">About</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
+                    
                         <%
 
                             String role = (String) session.getAttribute("role");
@@ -45,15 +46,16 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
-                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%} else if (role.equals("customer")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="AddToCart.jsp">Cart</a></li>
+                    
+                    <li><a href="ShowCart.jsp">Cart</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%} else if (role.equals("merchant")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
 
                     <%} else if (role.equals("admin")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%}%>
                 </ul>
             </nav>
@@ -146,7 +148,7 @@
                         <td class="text-left"><%=product.getName()%></td>
                         <td class="text-left">$<%=product.getPrice()%></td>
                         <td class=""><a href="ShowProductInfo.jsp?pointer=<%=products.indexOf(product) %>" class="myButton" >Get Info</a></td>
-                        <td class=""><a href="#" class="myButton">Download</a></td>
+                        <td class=""><a href="downloadservlet.do?Pindex=<%= product.getId()%>&Uindex=<%=product.getmID()%>" class="myButton">Download</a></td>
 
                     </tr>
                     <%}%>

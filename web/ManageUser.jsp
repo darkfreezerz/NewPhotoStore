@@ -32,11 +32,12 @@
     </head>
     <body>
         <div>
-            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </div>
-            <header class="cd-header">
+            <div id="menu-bar" style="width:100%;height:80px;background-color:black;z-index:-9999"> <a href="Home.jsp"> <img src="img/web-logo.png" width="100" height="50" style="float:left;margin-left:50px;margin-top:15px"> </a></div>
+           <header class="cd-header">
             <nav>
                 <ul class="cd-secondary-nav">
-                    <li><a href="reglog.html">About</a></li>
+                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%
 
                             String role = (String) session.getAttribute("role");
@@ -46,15 +47,16 @@
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
-                    <li><a href="Home.jsp">Home</a></li>
+                   
                         <%} else if (role.equals("customer")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
-                    <li><a href="AddToCart.jsp">Cart</a></li>
+                    
+                    <li><a href="ShowCart.jsp">Cart</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%} else if (role.equals("merchant")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
 
                     <%} else if (role.equals("admin")) {%>
-                    <li><a href="RegLog.jsp">Log out</a></li>
+                    <li><a href="logout.do">Log out</a></li>
                         <%}%>
                 </ul>
             </nav>
@@ -116,7 +118,7 @@
             <br>
             <div class="table-title" align="center" >
                 <div style="padding:10px; width:300px;height:50px;background-color:rgba(255,255,255,.3); border-radius:10px;">
-                    <h3>Product Data</h3>
+                    <h3>Profile Data</h3>
                     <br>
                 </div>
                 <br>
@@ -155,7 +157,7 @@
                         <td class="text-left"><%=user.getStatus()%></td>
 
 
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="showprofileinfo.do?index=<%=user.getId() %>" class="myButton" >Get Info</a></td>
                         <td class=""><a href="changeuserstatus.do?managerole=<%=managerole%>&index=<%=users.indexOf(user)%>&status=<%=user.getStatus() %>" class="myButton">Change</a></td>
 
                     </tr>
@@ -191,7 +193,7 @@
                         <td class="text-left"><%=user.getStatus()%></td>
 
 
-                        <td class=""><a href="#" class="myButton" >Get Info</a></td>
+                        <td class=""><a href="showprofileinfo.do?index=<%=user.getId() %>" class="myButton" >Get Info</a></td>
                         <td class=""><a href="changeuserstatus.do?managerole=<%=managerole%>&index=<%=users.indexOf(user)%>&status=<%=user.getStatus() %>" class="myButton">Change</a></td>
 
                     </tr>

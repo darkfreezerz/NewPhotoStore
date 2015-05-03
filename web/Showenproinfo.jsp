@@ -43,7 +43,7 @@
                             products = (List) session.getAttribute("searchmerchant");
                         } else if (role.equals("admin")) {
 
-                            products = (List) session.getAttribute("searchadmin");
+                            products = (List) session.getAttribute("enproduct");
                         }
                         Product product = products.get(Integer.parseInt(index));
 
@@ -172,8 +172,8 @@
                                                                                                         <% if (session.getAttribute("role").equals("customer")) {%>
                                                                                                         <a href="downloadservlet.do?Pindex=<%= product.getId()%>&Uindex=<%=product.getmID()%>" class="myButton">Download</a>
                                                                                                         <% } else {%>
-                                                                                                        <a href="downloadservlet.do?Pindex=<%= product.getId()%>&Uindex=<%=product.getmID()%>" class="myButton">Download</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                                                                        <a href="removephoto.do?index=<%=product.getId()%>&status=<%=product.getStatus()%>" class="myButton">Delete</a>
+                                                                                                        <a href="endisphoto.do?status=en&index=<%=index %>" class="myButton">Enable</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                                                                        <a href="endisphoto.do?status=dis&index=<%=index %>" class="myButton">Disable</a>
                                                                                                         <% }%>
                                                                                                         </div>
 

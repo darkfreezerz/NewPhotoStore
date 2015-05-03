@@ -39,15 +39,20 @@ public class PaymentServlet extends HttpServlet {
             HttpSession session = request.getSession();
             String role = (String) session.getAttribute("role");
             ManagePayment manage = new ManagePayment();
-            
+           
             String uid = (String) session.getAttribute("userid");
-            double salesum = (double) session.getAttribute("salesum");
-            salesum *= 0.7;
+
+            
+
             if (role.equals("admin")) {
+                double mpay = Double.parseDouble(request.getParameter("mpay"));
                 session.setAttribute("paypal", request.getParameter("paypal"));
-                session.setAttribute("salesum", salesum);
+                session.setAttribute("payid", request.getParameter("pindex"));
+                session.setAttribute("mpay", mpay);
                 response.sendRedirect("simplepay.do");
             } else if (role.equals("merchant")) {
+                double salesum = (double) session.getAttribute("salesum");
+                salesum *= 0.7;
                 manage.requestPayment(uid, salesum);
                 manage.setPayment(uid, salesum);
                 response.sendRedirect("showcallpayment.do");

@@ -116,7 +116,8 @@
             <div id="content-wrapper">
                 <div id="aboutme" class="active" >
                     <h5 class="textborder">My Profile Information</h5>
-                    <%if (role.equals("merchant")) {
+                    <%String userrole = (String) session.getAttribute("managerole");
+                if (userrole.equals("merchant")) {
                             User user = new User();
                             user = (User) session.getAttribute("profiledata");
 
@@ -168,7 +169,7 @@
 
 
 
-                    <%} else if (role.equals("customer")) {
+                    <%} else if (userrole.equals("customer")) {
                         User user = new User();
                         user = (User) session.getAttribute("profiledata");
                     %>
@@ -197,7 +198,7 @@
                         <%}%>
                     
                     <br><br><br>
-                    <a href="EditProfile.jsp" class="myButton" >Edit</a>
+             
                     <br><br><br>
                 </div>
             </div>

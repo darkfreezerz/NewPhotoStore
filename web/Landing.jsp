@@ -16,6 +16,10 @@
            HttpSession start = request.getSession();
            start.setAttribute("role", "");
            start.setAttribute("loginflag", "");
+           start.setAttribute("pointer", "");
+           start.setAttribute("searchKeyWord", "");
+           start.setAttribute("cartflag", 0);
+           
            response.sendRedirect("Home.jsp");
         %>
     </body>

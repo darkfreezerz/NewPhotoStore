@@ -40,18 +40,31 @@ public class CompleteTransaction extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+             
            Cart cart = new Cart();
            HttpSession session = request.getSession();
+         
+        
            cart = (Cart) session.getAttribute("cart");
            List<Product> products = new LinkedList<Product>();
            products = cart.getCart();
-           ManagePayment manage = new ManagePayment();
-           manage.addPurchase((String) session.getAttribute("userid"));
-           manage.addOrderDescript(products);
-           manage.addReciept((double) session.getAttribute("amount"));
-           response.sendRedirect("Home.jsp");
+           
+          ManagePayment manage = new ManagePayment();
+          manage.addPurchase((String) session.getAttribute("userid"));
+          manage.addOrderDescript(products);
+          manage.addReciept( Double.parseDouble((String) session.getAttribute("amount")));
+          manage.addSalecount(products);
+         session.setAttribute("cart", "");
+         session.setAttribute("cartflag", 0);
+          
+         response.sendRedirect("Home.jsp");
             
         }
+    }
+    
+    public static  void main (String[] args){
+        ManagePayment manage = new ManagePayment();
+        manage.addReciept(300);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

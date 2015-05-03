@@ -5,8 +5,12 @@
  */
 package controller;
 
+import bean.MerchantPayment;
+import database.ManagePayment;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,8 +22,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author niponsarikan
  */
-@WebServlet(name = "Logout", urlPatterns = {"/logout.do"})
-public class Logout extends HttpServlet {
+@WebServlet(name = "CompletePayment", urlPatterns = {"/payment.do"})
+public class CompletePayment extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,12 +38,14 @@ public class Logout extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            HttpSession session = request.getSession(false);
-            if(session!=null){
-                 session.invalidate();
-            }
-           
-            response.sendRedirect("Landing.jsp");
+         HttpSession session = request.getSession();
+         ManagePayment manage = new ManagePayment();
+         List <MerchantPayment> pay = new LinkedList<MerchantPayment>();
+         pay = (List<MerchantPayment>) session.getAttribute("merchantpayment");
+         String payid = (String) session.getAttribute("payid");
+         String uid = (String) session.getAttribute("userid");
+         manage.setResponePayment(payid, uid);
+         response.sendRedirect("showrequestpayment.do");
         }
     }
 

@@ -50,7 +50,7 @@
          ' This is set to the value entered on the Integration Assistant 
          '------------------------------------
          */
-        String cancelURL = "http://localhost:8080/Photo/";
+        String cancelURL = "http://localhost:8080/Photo/Home.jsp";
 
         /*
          '------------------------------------

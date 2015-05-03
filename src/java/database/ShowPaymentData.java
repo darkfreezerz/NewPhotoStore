@@ -5,7 +5,6 @@
  */
 package database;
 
-
 import bean.MerchantPayment;
 import bean.ProductSold;
 import java.sql.Connection;
@@ -24,34 +23,37 @@ import websetting.DBConnection;
  * @author niponsarikan
  */
 public class ShowPaymentData {
+
     public Connection conn;
-   DBConnection db = new DBConnection();
+    DBConnection db = new DBConnection();
     private String db_driver = db.getDb_driver();
     private String db_url = db.getDb_url();
     private String db_user = db.getDb_user();
     private String db_pass = db.getDb_pass();
-    
-    public ShowPaymentData(){
+
+    public ShowPaymentData() {
         try {
-            
+
             Class.forName(db_driver);
             conn = DriverManager.getConnection(db_url, db_user, db_pass);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(RegLogDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     // user for merchant
-    public List showMerchantSale(String mID){
-        List <ProductSold> products = new LinkedList<ProductSold>();
+    public List showMerchantSale(String mID) {
+        List<ProductSold> products = new LinkedList<ProductSold>();
         ShowPaymentData count = new ShowPaymentData();
         try {
             PreparedStatement show = conn.prepareStatement("select * from Order_Des natural join Product "
                     + "where m_ID =? and PaymentStatus = 'No' ;");
             show.setInt(1, Integer.parseInt(mID));
             ResultSet rs = show.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
+
                 ProductSold product = new ProductSold();
+
                 product.setP_id(rs.getInt("P_ID"));
                 product.setM_id(rs.getInt("M_ID"));
                 product.setP_name(rs.getString("P_Name"));
@@ -59,16 +61,19 @@ public class ShowPaymentData {
                 product.setP_salecount(count.SaleCount(rs.getString("P_ID")));
                 product.setP_price(rs.getDouble("P_Price"));
                 product.setPayment_status(rs.getString("PaymentStatus"));
-                product.setSale_amount(product.getP_price()*product.getP_salecount());
-                products.add(product);
+                product.setSale_amount(product.getP_price() * product.getP_salecount());
+                if (count.checkduplicatePro(product.getP_id(), products)) {
+                    products.add(product);
+                }
+
             }
         } catch (SQLException ex) {
             Logger.getLogger(ShowPaymentData.class.getName()).log(Level.SEVERE, null, ex);
         }
         return products;
     }
-    
-    public int SaleCount(String p_id){
+
+    public int SaleCount(String p_id) {
         int salecount = 1;
         try {
             PreparedStatement count = conn.prepareStatement("select count(p_id) from Order_Des where P_ID = ? and PaymentStatus = 'No'");
@@ -81,20 +86,21 @@ public class ShowPaymentData {
         }
         return salecount;
     }
-    public double SaleSum(List<ProductSold> products){
+
+    public double SaleSum(List<ProductSold> products) {
         double salesum = 0;
-        for(ProductSold product:products){
+        for (ProductSold product : products) {
             salesum += product.getSale_amount();
         }
         return salesum;
     }
-    
-     public List showAllmerchantPayList(){
-         List <MerchantPayment> payments = new LinkedList<MerchantPayment>();
+
+    public List showAllmerchantPayList() {
+        List<MerchantPayment> payments = new LinkedList<MerchantPayment>();
         try {
             PreparedStatement show = conn.prepareStatement("select * from M_Payment natural join Merchant where MPay_Status ='No';");
             ResultSet rs = show.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 MerchantPayment payment = new MerchantPayment();
                 payment.setMpayId(rs.getInt("MPay_ID"));
                 payment.setMpayStatus(rs.getString("MPay_Status"));
@@ -111,12 +117,27 @@ public class ShowPaymentData {
             Logger.getLogger(ShowPaymentData.class.getName()).log(Level.SEVERE, null, ex);
         }
         return payments;
-     }
-    public static void main(String[] args){
+    }
+
+    public boolean checkduplicatePro(int pID, List<ProductSold> products) {
+        boolean status = true;
+        for (ProductSold product : products) {
+            if (pID == product.getP_id()) {
+                status = false;
+                break;
+            } else {
+                status = true;
+            }
+        }
+        return status;
+
+    }
+
+    public static void main(String[] args) {
         ShowPaymentData a = new ShowPaymentData();
-        List <ProductSold> products = new LinkedList<ProductSold>();
-      products = a.showMerchantSale("1");
+        List<ProductSold> products = new LinkedList<ProductSold>();
+        products = a.showMerchantSale("1");
         System.out.println(products.get(0).getSale_amount());
     }
-         
+
 }

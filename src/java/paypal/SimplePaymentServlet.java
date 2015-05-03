@@ -18,28 +18,31 @@ import com.paypal.svcs.types.ap.PayResponse;
 import com.paypal.svcs.types.ap.Receiver;
 import com.paypal.svcs.types.ap.ReceiverList;
 import com.paypal.svcs.types.common.RequestEnvelope;
+import java.io.PrintWriter;
 import javax.servlet.annotation.WebServlet;
 
-@WebServlet(name = "LoginServlet", urlPatterns = {"/simplepay.do"})
+@WebServlet(name = "SimplePaymentServlet", urlPatterns = {"/simplepay.do"})
 public class SimplePaymentServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1012983719723L;
 
-    protected void doPost(HttpServletRequest request,
+    protected void doGet(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
 
         PayRequest req = new PayRequest();
         RequestEnvelope requestEnvelope = new RequestEnvelope("en_US");
         req.setRequestEnvelope(requestEnvelope);
+        HttpSession session = request.getSession();
 
         List<Receiver> receiver = new ArrayList<Receiver>();
         Receiver rec = new Receiver();
         /**
          * (Required) Amount to be paid to the receiver
          */
-        if (request.getParameter("salesum") != "") {
-            rec.setAmount(Double.parseDouble(request.getParameter("salesum")));
-        }
+        //if (request.getParameter("mpay") != "") {
+            rec.setAmount((Double) session.getAttribute("mpay"));
+           
+       // }
 
         /**
          * Receiver's email address. This address can be unregistered with
@@ -48,9 +51,9 @@ public class SimplePaymentServlet extends HttpServlet {
          * either an email address or a phone number. Maximum length: 127
          * characters
          */
-        if (request.getParameter("paypal") != "") {
-            rec.setEmail(request.getParameter("paypal"));
-        }
+        //if (request.getParameter("paypal") != "") {
+            rec.setEmail((String) session.getAttribute("paypal"));
+        //}
 
         receiver.add(rec);
         ReceiverList receiverlst = new ReceiverList(receiver);
@@ -77,7 +80,7 @@ public class SimplePaymentServlet extends HttpServlet {
          * require approval (explicit payments)
          */
 
-        req.setCancelUrl("");
+        req.setCancelUrl("http://localhost:8080/Photo/showrequestpayment.do");
         /**
          * The code for the currency in which the payment is made; you can
          * specify only one currency, regardless of the number of receivers
@@ -90,14 +93,13 @@ public class SimplePaymentServlet extends HttpServlet {
          * used if a payment requires explicit approval
          */
 
-        req.setReturnUrl(request.getParameter("http://localhost:8080/showrequestpayment.do"));
+        req.setReturnUrl("http://localhost:8080/Photo/showrequestpayment.do");
 
         /**
          * (Optional) The URL to which you want all IPN messages for this
          * payment to be sent. Maximum length: 1024 characters
          */
-        req.setIpnNotificationUrl(""
-        );
+       // req.setIpnNotificationUrl("");
 
 		// Configuration map containing signature credentials and other required
         // configuration.
@@ -110,7 +112,7 @@ public class SimplePaymentServlet extends HttpServlet {
         AdaptivePaymentsService service = new AdaptivePaymentsService(
                 configurationMap);
 
-        HttpSession session = request.getSession();
+ //       HttpSession session = request.getSession();
         session.setAttribute("url", request.getRequestURI());
         try {
             PayResponse resp = service.pay(req);
@@ -186,10 +188,11 @@ public class SimplePaymentServlet extends HttpServlet {
                                 + resp.getPayKey() + "</a>");
                     }
                     session.setAttribute("map", map);
-                    response.sendRedirect("Response.jsp");
+                    response.sendRedirect("payment.do");
                 } else {
                     session.setAttribute("Error", resp.getError());
-                    response.sendRedirect("Error.jsp");
+                    
+                   response.sendRedirect("Error.jsp");
                 }
             }
         } catch (Exception e) {
