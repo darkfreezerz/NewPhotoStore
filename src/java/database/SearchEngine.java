@@ -146,6 +146,72 @@ public class SearchEngine {
 
         return products;
     }
+    
+    public List Searchnew() {
+        List<Product> products = new LinkedList<Product>();
+        try {
+
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_Date ";
+            PreparedStatement search = conn.prepareStatement(sql);
+            ResultSet rs = search.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getString("P_ID"));
+                product.setAddress(rs.getString("P_Address"));
+                product.setCateID(rs.getString("Cate_ID"));
+                product.setCateName(rs.getString("Cate_Name"));
+                product.setDate(rs.getString("P_Date"));
+                product.setDescription(rs.getString("P_Des"));
+                product.setName(rs.getString("P_Name"));
+                product.setPrice(rs.getDouble("P_Price"));
+                product.setStatus(rs.getString("P_Status"));
+                product.setWatermark(rs.getString("P_WatermarkUrl"));
+                product.setmFirstName(rs.getString("M_Name"));
+                product.setmID(rs.getString("M_ID"));
+                product.setmLastName(rs.getString("M_LastName"));
+                products.add(product);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchEngine.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return products;
+    }
+    
+    public List Searchtop() {
+        List<Product> products = new LinkedList<Product>();
+        try {
+
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_SaleCount";
+            PreparedStatement search = conn.prepareStatement(sql);
+            ResultSet rs = search.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getString("P_ID"));
+                product.setAddress(rs.getString("P_Address"));
+                product.setCateID(rs.getString("Cate_ID"));
+                product.setCateName(rs.getString("Cate_Name"));
+                product.setDate(rs.getString("P_Date"));
+                product.setDescription(rs.getString("P_Des"));
+                product.setName(rs.getString("P_Name"));
+                product.setPrice(rs.getDouble("P_Price"));
+                product.setStatus(rs.getString("P_Status"));
+                product.setWatermark(rs.getString("P_WatermarkUrl"));
+                product.setmFirstName(rs.getString("M_Name"));
+                product.setmID(rs.getString("M_ID"));
+                product.setmLastName(rs.getString("M_LastName"));
+                products.add(product);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SearchEngine.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return products;
+    }
 
     /*public static void main(String[] args) {
         SearchEngine x = new SearchEngine();

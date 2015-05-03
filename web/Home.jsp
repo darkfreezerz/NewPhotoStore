@@ -4,6 +4,10 @@
     Author     : niponsarikan
 --%>
 
+<%@page import="bean.Product"%>
+<%@page import="database.SearchEngine"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!doctype html>
@@ -30,19 +34,19 @@
             <nav>
                 <ul class="cd-secondary-nav">
                     <li><a href="Home.jsp">Home</a></li>
-                   
-                        <%
 
-                            String role = (String) session.getAttribute("role");
-                            if (role.equals("")) {
+                    <%
 
-                        %>
+                        String role = (String) session.getAttribute("role");
+                        if (role.equals("")) {
+
+                    %>
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
-                   
-                        <%} else if (role.equals("customer")) {%>
-                    
+
+                    <%} else if (role.equals("customer")) {%>
+
                     <li><a href="ShowCart.jsp">Cart</a></li>
                     <li><a href="logout.do">Log out</a></li>
                         <%} else if (role.equals("merchant")) {%>
@@ -54,7 +58,7 @@
                 </ul>
             </nav>
             <!-- cd-nav --> 
-        
+
             <a class="cd-primary-nav-trigger" href="#0"> <span class="cd-menu-text">manage</span><span class="cd-menu-icon"></span> </a> <!-- cd-primary-nav-trigger --> 
         </header>
         <nav>
@@ -70,9 +74,9 @@
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                    
+
                 <!--merchant -->
-                 <%}else if (role.equals("merchant")) {%>
+                <%} else if (role.equals("merchant")) {%>
                 <li class="cd-label">Information</li>
                 <li><a href="showprofileinfo.do">My Information</a></li>
                 <li class="cd-label">Manage</li>
@@ -86,17 +90,17 @@
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
                 <li class="cd-social cd-dribbble"><a href="#0">Dribbble</a></li>
                 <li class="cd-social cd-twitter"><a href="#0">Twitter</a></li>
-                    
-                <%}else if (role.equals("admin")) {%>
+
+                <%} else if (role.equals("admin")) {%>
                 <li class="cd-label">User</li>
                 <li><a href="showuserdata.do?userrole=merchant">Merchant</a></li>
                 <li><a href="showuserdata.do?userrole=customer">Customer</a></li>
                 <li class="cd-label">Product</li>
                 <li><a href="enableproduct.do">Enable Photo</a></li>
                 <li><a href="manage.do">Delete Photo</a></li>
-             
+
                 <li class="cd-label">Payment</li>
-                 <li><a href="showrequestpayment.do">Set Payment</a></li>
+                <li><a href="showrequestpayment.do">Set Payment</a></li>
                 <li class="cd-label">Follow us</li>
                 <li class="cd-social cd-facebook"><a href="#0">Facebook</a></li>
                 <li class="cd-social cd-instagram"><a href="#0">Instagram</a></li>
@@ -105,8 +109,8 @@
                     <%}%>
             </ul>
         </nav>
-            
-           
+
+
         <section class="cd-intro">
             <h1>Best Photo with you</h1>
         </section>
@@ -117,6 +121,11 @@
                     <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
                     <button type="submit"  >Search</button>
                 </form>
+                <%List<Product> producttop = new LinkedList<Product>();
+                 List<Product> productnew = new LinkedList<Product>();
+                    SearchEngine search = new SearchEngine();
+                 producttop = search.Searchtop();
+                productnew = search.Searchnew();%>
                 <div class="body" align="center">
                     <ul class="hoverbox">
                         <h1 style="font-size:24px;">Best Seller</h1>
@@ -147,6 +156,7 @@
                         <br>
                         <h1 style="font-size:24px;">New Release</h1>
                         <br>
+
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
                             <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
