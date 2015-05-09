@@ -40,7 +40,7 @@
          ' This is set to the value entered on the Integration Assistant 
          '------------------------------------
          */
-        String returnURL = "http://localhost:8080/Photo/OrderConfirmPage.jsp";
+        String returnURL = "http://tomcat.it.kmitl.ac.th:8082/Photo/OrderConfirmPage.jsp";
 
         /*
          '------------------------------------
@@ -50,7 +50,7 @@
          ' This is set to the value entered on the Integration Assistant 
          '------------------------------------
          */
-        String cancelURL = "http://localhost:8080/Photo/Home.jsp";
+        String cancelURL = "http://tomcat.it.kmitl.ac.th:8082/Photo/Photo/Home.jsp";
 
         /*
          '------------------------------------

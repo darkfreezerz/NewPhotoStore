@@ -12,9 +12,9 @@ package websetting;
 public class DBConnection {
     
     private String db_driver = "com.mysql.jdbc.Driver";
-    private String db_url = "jdbc:mysql://localhost:3306/Photo?zeroDateTimeBehavior=convertToNull";
-    private String db_user = "root";
-    private String db_pass = "root";
+    private String db_url = "jdbc:mysql://database.it.kmitl.ac.th:3306/it_56070078?zeroDateTimeBehavior=convertToNull";
+    private String db_user = "it_56070078";
+    private String db_pass = "yK4uxP6hOw";
 
     public String getDb_driver() {
         return db_driver;

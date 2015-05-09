@@ -80,7 +80,7 @@ public class SimplePaymentServlet extends HttpServlet {
          * require approval (explicit payments)
          */
 
-        req.setCancelUrl("http://localhost:8080/Photo/showrequestpayment.do");
+        req.setCancelUrl("http://tomcat.it.kmitl.ac.th:8082/Photo/showrequestpayment.do");
         /**
          * The code for the currency in which the payment is made; you can
          * specify only one currency, regardless of the number of receivers
@@ -93,7 +93,7 @@ public class SimplePaymentServlet extends HttpServlet {
          * used if a payment requires explicit approval
          */
 
-        req.setReturnUrl("http://localhost:8080/Photo/showrequestpayment.do");
+        req.setReturnUrl("http://tomcat.it.kmitl.ac.th:8082/Photo/showrequestpayment.do");
 
         /**
          * (Optional) The URL to which you want all IPN messages for this

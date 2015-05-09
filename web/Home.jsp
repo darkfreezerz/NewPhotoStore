@@ -118,36 +118,32 @@
             <div class="cd-container">
                 <p> <br><br><br><br><br><br></p>
                 <form action="search.do" method="post" class="form-wrapper cf">
-                    <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
+                    <input type="text"  name="picturename" placeholder="Search Some Photo ......" >
                     <button type="submit"  >Search</button>
                 </form>
-                <%List<Product> producttop = new LinkedList<Product>();
-                 List<Product> productnew = new LinkedList<Product>();
-                    SearchEngine search = new SearchEngine();
-                 producttop = search.Searchtop();
-                productnew = search.Searchnew();%>
+               
                 <div class="body" align="center">
                     <ul class="hoverbox">
                         <h1 style="font-size:24px;">Best Seller</h1>
                         <br>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-wallpaper-39332.jpg" alt="description" /> <img src="PhotoStore/nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-wallpaper-39332.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" /> <img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/Beauty-of-nature-random-4884759-1280-800.jpg" alt="description" /> <img src="PhotoStore/Beauty-of-nature-random-4884759-1280-800.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/Nature-Spiral-Bokeh-Micro1.jpg" alt="description" /> <img src="PhotoStore/Nature-Spiral-Bokeh-Micro1.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/GoldenNature2.jpg" alt="description" /> <img src="PhotoStore/GoldenNature2.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <br>
@@ -158,23 +154,23 @@
                         <br>
 
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/4-Nature+Wallpapers+2014-1.jpg" alt="description" /> <img src="PhotoStore/4-Nature+Wallpapers+2014-1.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/amazing-bidge.jpg" alt="description" /> <img src="PhotoStore/amazing-bidge.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" /> <img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/butterflys.jpg" alt="description" /> <img src="PhotoStore/butterflys.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" /> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg/780px-Abraham_Lincoln_head_on_shoulders_photo_portrait.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="#" ><img src="PhotoStore/Nature-pictures-2.jpg" alt="description" /> <img src="PhotoStore/Nature-pictures-2.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
                         </div>
                         </li>
                     </ul>

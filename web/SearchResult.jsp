@@ -119,13 +119,13 @@
         <br><br>
 
         <form action="search.do" method="post" class="form-wrapper cf">
-            <input type="text"  name="picturename" placeholder="Search Some Photo ......" required>
+            <input type="text"  name="picturename" placeholder="Search Some Photo ......" >
             <button type="submit"  >Search</button>
         </form>
 
         <div class="body" align="center">
             <ul class="hoverbox">
-                <h1 style="font-size:24px;"><% out.print(keyword); %></h1>
+                <h1 style="font-size:24px;"></h1>
                 <br>
                 <br>
                 <% for (Product product : products) {%>
