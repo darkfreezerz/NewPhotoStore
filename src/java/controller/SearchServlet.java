@@ -48,7 +48,7 @@ public class SearchServlet extends HttpServlet {
                 picture.setAttribute("searchKeyWord", products);
 
                 picture.setAttribute("keyword", picname);
-
+                
                 response.sendRedirect("SearchResult.jsp");
 
             } else {
@@ -58,6 +58,7 @@ public class SearchServlet extends HttpServlet {
                     picture.setAttribute("searchKeyWord", products);
 
                     picture.setAttribute("keyword", category);
+                    
                 } else {
                     products = search.SearchCategory(category);
 
@@ -65,8 +66,9 @@ public class SearchServlet extends HttpServlet {
                     picture.setAttribute("searchKeyWord", products);
 
                     picture.setAttribute("keyword", category);
+                    
                 }
-
+                
                 response.sendRedirect("SearchResult.jsp");
             }
 

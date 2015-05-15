@@ -25,6 +25,12 @@
         <link rel="stylesheet" href="css/style.css">
         <link href="css/SearchBox.css" rel="stylesheet" type="text/css">
         <!-- Resource style -->
+         <style type="text/css" media="all">
+            @import url("css/reset.css");
+            @import url("css/style.css");
+            @import url("http://weloveiconfonts.com/api/?family=entypo");
+            @import url("css/button.css");
+        </style>
         <script src="js/modernizr.js"></script><!-- Modernizr -->
     </head>
 
@@ -35,13 +41,13 @@
                 <nav>
                     <ul class="cd-secondary-nav">
                         <li><a href="Home.jsp">Home</a></li>
-                        
-                            <%
 
-                                String role = (String) session.getAttribute("role");
-                                if (role.equals("")) {
+                        <%
 
-                            %>
+                            String role = (String) session.getAttribute("role");
+                            if (role.equals("")) {
+
+                        %>
 
                         <li><a href="RegLog.jsp">Login</a></li>
                         <li><a href="RegLog.jsp#toregister">Register</a></li>
@@ -132,11 +138,11 @@
                                 <input style="margin-top:10px;width:230px; border-radius:10px;height:25px; padding-left:5px; " type="text" name="lastname" value="<%=user.getLastname()%>" /></div>
 
                             <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Tel: </h3>
-                                <input style="margin-top:10px;width:230px; border-radius:10px;height:25px; padding-left:5px; " type="text" name="email" value="<%=user.getEmail()%>" /></div>
+                                <input style="margin-top:10px;width:230px; border-radius:10px;height:25px; padding-left:5px; " type="text" name="email" value="<%=user.getPhone()%>" /></div>
 
 
                             <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">E-mail: </h3>
-                                <input style="margin-top:10px;width:230px; border-radius:10px;height:25px; padding-left:5px; " type="text" name="tel" value="<%=user.getPhone()%>" /></div>
+                                <input style="margin-top:10px;width:230px; border-radius:10px;height:25px; padding-left:5px; " type="text" name="tel" value="<%=user.getEmail()%>" /></div>
 
 
                             <div class="box" style="display:inline-block; width:390px;"><h3 style="float:left; margin:10px; ">Address: </h3>

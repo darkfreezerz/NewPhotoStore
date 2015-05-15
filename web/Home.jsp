@@ -4,6 +4,7 @@
     Author     : niponsarikan
 --%>
 
+<%@page import="java.io.File"%>
 <%@page import="bean.Product"%>
 <%@page import="database.SearchEngine"%>
 <%@page import="java.util.LinkedList"%>
@@ -23,6 +24,12 @@
         <link href="css/SearchBox.css" rel="stylesheet" type="text/css">
         <!-- Resource style -->
         <script src="js/modernizr.js"></script><!-- Modernizr -->
+        <style type="text/css" media="all">
+            @import url("css/reset.css");
+            @import url("css/style.css");
+            @import url("http://weloveiconfonts.com/api/?family=entypo");
+            @import url("css/button.css");
+        </style>
 
         <title>Full-Screen Pop-Out Navigation</title>
     </head>
@@ -121,58 +128,49 @@
                     <input type="text"  name="picturename" placeholder="Search Some Photo ......" >
                     <button type="submit"  >Search</button>
                 </form>
-               
+
+
+                <% SearchEngine search = new SearchEngine();
+
+                    List<Product> newP = new LinkedList<Product>();
+                    List<Product> topP = new LinkedList<Product>();
+                    newP = search.Searchnew();
+                    topP = search.Searchtop();
+                    HttpSession picture = request.getSession();
+
+                    picture.setAttribute("searchNew", newP);
+                    picture.setAttribute("searchTop", topP);
+
+
+                %>
                 <div class="body" align="center">
                     <ul class="hoverbox">
                         <h1 style="font-size:24px;">Best Seller</h1>
                         <br>
+                        <% for (Product product : topP) {%>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-wallpaper-39332.jpg" alt="description" /> <img src="PhotoStore/nature-wallpapers-nature-wallpaper-latest-beautiful-wallpapers-wallpaper-39332.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="AddToCart.jsp?pointer=<%= topP.indexOf(product)%>&sflag=top"  ><img src="Watermark<%= File.separator + product.getmID() + File.separator + "re" + product.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
                         </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" /> <img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/Beauty-of-nature-random-4884759-1280-800.jpg" alt="description" /> <img src="PhotoStore/Beauty-of-nature-random-4884759-1280-800.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/Nature-Spiral-Bokeh-Micro1.jpg" alt="description" /> <img src="PhotoStore/Nature-Spiral-Bokeh-Micro1.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/GoldenNature2.jpg" alt="description" /> <img src="PhotoStore/GoldenNature2.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
+                        <% }%>
+
+
+
                         <br>
                         <br>
                         <br>
-                        <br>
-                        <h1 style="font-size:24px;">New Release</h1>
                         <br>
 
+
+
+                        <h1 style="font-size:24px;">New Release</h1>
+                        <br>
+                        <% for (Product product : newP) {%>
                         <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/4-Nature+Wallpapers+2014-1.jpg" alt="description" /> <img src="PhotoStore/4-Nature+Wallpapers+2014-1.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
+                            <li> <a href="AddToCart.jsp?pointer=<%= newP.indexOf(product)%>&sflag=new"  ><img src="Watermark<%= File.separator + product.getmID() + File.separator + "re" + product.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
                         </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/amazing-bidge.jpg" alt="description" /> <img src="PhotoStore/amazing-bidge.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" /> <img src="PhotoStore/beautiful-nature-waterfall.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/butterflys.jpg" alt="description" /> <img src="PhotoStore/butterflys.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
-                        <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                            <li> <a href="#" ><img src="PhotoStore/Nature-pictures-2.jpg" alt="description" /> <img src="PhotoStore/Nature-pictures-2.jpg" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a> 
-                        </div>
-                        </li>
+                        <% }%>
+
+
                     </ul>
                     <br>
                     <br>
@@ -218,6 +216,15 @@
         </a> </div>
 </div>
 </div>
+<br><br><br><div class="wrapper">
+    <div class="social">&#62220;</div>
+    <div class="social">&#62217;</div>
+    <div class="social">&#62223;</div>
+    <div class="social">&#62232;</div>
+    <div class="social">&#62235;</div>
+    <div class="social">&#62226;</div>
+    <div class="social">&#62214;</div>
+<br><br><br></div>
 <script src="js/jquery-2.1.1.js"></script> 
 <script src="js/main.js"></script> <!-- Resource jQuery --> 
 </main>

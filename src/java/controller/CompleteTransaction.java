@@ -54,6 +54,7 @@ public class CompleteTransaction extends HttpServlet {
           manage.addOrderDescript(products);
           manage.addReciept( Double.parseDouble((String) session.getAttribute("amount")));
           manage.addSalecount(products);
+          manage.addBuyamount(Double.parseDouble((String) session.getAttribute("amount")), (String) session.getAttribute("userid"));
          session.setAttribute("cart", "");
          session.setAttribute("cartflag", 0);
           

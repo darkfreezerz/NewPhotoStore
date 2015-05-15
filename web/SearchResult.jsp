@@ -30,6 +30,12 @@
         <link rel="stylesheet" href="css/style.css">
         <link href="css/SearchBox.css" rel="stylesheet" type="text/css">
         <!-- Resource style -->
+         <style type="text/css" media="all">
+            @import url("css/reset.css");
+            @import url("css/style.css");
+            @import url("http://weloveiconfonts.com/api/?family=entypo");
+            @import url("css/button.css");
+        </style>
         <script src="js/modernizr.js"></script><!-- Modernizr -->
 
         <title>Full-Screen Pop-Out Navigation</title>
@@ -42,12 +48,12 @@
             <nav>
                 <ul class="cd-secondary-nav">
                     <li><a href="Home.jsp">Home</a></li>
-                  
-                        <%
-                            String role = (String) session.getAttribute("role");
-                            if (role.equals("")) {
 
-                        %>
+                    <%
+                        String role = (String) session.getAttribute("role");
+                        if (role.equals("")) {
+
+                    %>
 
                     <li><a href="RegLog.jsp">Login</a></li>
                     <li><a href="RegLog.jsp#toregister">Register</a></li>
@@ -123,16 +129,26 @@
             <button type="submit"  >Search</button>
         </form>
 
-        <div class="body" align="center">
+        <div class="body" align="center" style="margin-left: auto;margin-right: auto;">
+            
             <ul class="hoverbox">
                 <h1 style="font-size:24px;"></h1>
                 <br>
                 <br>
                 <% for (Product product : products) {%>
                 <div style="display:inline-table;width:212px;height:212px;background:rgba(153,102,0,.3);text-align:center;margin-bottom:4px;" >
-                    <li> <a href="AddToCart.jsp?pointer=<%= products.indexOf(product)%>"  ><img src="Watermark<%= File.separator + product.getmID() + File.separator + "re" + product.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
+                    <li> <a href="AddToCart.jsp?pointer=<%= products.indexOf(product)%>&sflag=key"  ><img src="Watermark<%= File.separator + product.getmID() + File.separator + "re" + product.getId() + ".jpg"%>" alt="description" /> <img src="Watermark<%= File.separator + product.getmID() + File.separator + product.getId() + "_wm.jpg"%>" alt="description" class="preview" style="max-height:400px;max-width:400px" /></a>
                 </div>
                 <% }%>
-
-<script src="js/jquery-2.1.1.js"></script> 
-<script src="js/main.js"></script> <!-- Resource jQuery --> 
+        </div>
+<br><br><br><div class="wrapper">
+    <div class="social">&#62220;</div>
+    <div class="social">&#62217;</div>
+    <div class="social">&#62223;</div>
+    <div class="social">&#62232;</div>
+    <div class="social">&#62235;</div>
+    <div class="social">&#62226;</div>
+    <div class="social">&#62214;</div>
+<br><br><br></div>
+        <script src="js/jquery-2.1.1.js"></script> 
+        <script src="js/main.js"></script> <!-- Resource jQuery --> 

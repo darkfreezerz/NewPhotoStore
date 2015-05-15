@@ -34,7 +34,16 @@
                     <script src="js/modernizr.js"></script><!-- Modernizr -->
                     <% String index = request.getParameter("pointer");
                         List<Product> products = new LinkedList<Product>();
-                        products = (List) session.getAttribute("searchKeyWord");
+                        if(request.getParameter("sflag").equals("top")){
+                            products = (List) session.getAttribute("searchTop");
+                        }
+                        else if(request.getParameter("sflag").equals("new")){
+                            products = (List) session.getAttribute("searchNew");
+                        }
+                        else{
+                            products = (List) session.getAttribute("searchKeyWord");
+                        }
+                        
                         Product product = products.get(Integer.parseInt(index));
 
                         ManageProduct mp = new ManageProduct();
@@ -145,7 +154,7 @@
                                                                     <br>   
 
                                                                         <div class="span-5 last" align="left" style="margin-left: 300px">
-                                                                            <h2 style="font:bold; font-size: 24px" >Description</h2><br>
+                                                                            <h2 style="font:bold; font-size: 24px" >Description : </h2><br>
                                                                                 <p style="font-size: 24px" ><%= product.getDescription()%> </p><br>
                                                                                     <p style="font-size: 24px" >By : <%= product.getmFirstName() + " " + product.getmFirstName()%></p><br>
                                                                                         <p style="font-size: 24px" >Price : $<%= product.getPrice()%></p>
@@ -169,6 +178,7 @@
                                                                                                 <div class="social">&#62226;</div>
                                                                                                 <div class="social">&#62214;</div>
                                                                                             </div>
+                                                                                            <br><br>
                                                                                             <script src="js/jquery-2.1.1.js"></script> 
                                                                                             <script src="js/main.js"></script> <!-- Resource jQuery -->
                                                                                             </body>

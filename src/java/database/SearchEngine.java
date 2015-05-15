@@ -151,7 +151,7 @@ public class SearchEngine {
         List<Product> products = new LinkedList<Product>();
         try {
 
-            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_Date ";
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_Date DESC LIMIT 5; ";
             PreparedStatement search = conn.prepareStatement(sql);
             ResultSet rs = search.executeQuery();
             while (rs.next()) {
@@ -184,7 +184,7 @@ public class SearchEngine {
         List<Product> products = new LinkedList<Product>();
         try {
 
-            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_SaleCount";
+            String sql = "SELECT * FROM Product NATURAL JOIN Category NATURAL JOIN Merchant WHERE P_Status = 'Yes' order by P_SaleCount DESC LIMIT 5;";
             PreparedStatement search = conn.prepareStatement(sql);
             ResultSet rs = search.executeQuery();
             while (rs.next()) {

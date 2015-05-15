@@ -54,7 +54,7 @@ public class PaymentServlet extends HttpServlet {
                 double salesum = (double) session.getAttribute("salesum");
                 salesum *= 0.7;
                 manage.requestPayment(uid, salesum);
-                manage.setPayment(uid, salesum);
+                //manage.setPayment(uid, salesum);
                 response.sendRedirect("showcallpayment.do");
             }
         }

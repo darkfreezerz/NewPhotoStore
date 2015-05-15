@@ -120,10 +120,10 @@
                     <input type="name" name="namepic"	 	style="margin:10px;width:710px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
                     <h1 style="float:left; margin:10px;">Price (USD)</h1><br><br>
                     <input type="price" name="pricepic" 	style="margin:10px;width:200px; padding-left:15px; display:block;border-radius:5px; border:#000; background-color:#B4B4B4;">
-                    <h1 style="float:left; margin:10px;">Catalog</h1>
+                    <h1 style="float:left; margin:10px;">Category</h1>
                     <div class="dropdown" style="margin-left:10px;">
                         <select name="catalog" class="dropdown-select">
-                            <option value="">Select…</option>
+                            
                             <option value="1">People</option>
                             <option value="2">Place</option>
                             <option value="3">Nature</option>
@@ -152,7 +152,15 @@
                 <div class="social">&#62214;</div>
             </div>
 
-
+<br><br><br><div class="wrapper">
+    <div class="social">&#62220;</div>
+    <div class="social">&#62217;</div>
+    <div class="social">&#62223;</div>
+    <div class="social">&#62232;</div>
+    <div class="social">&#62235;</div>
+    <div class="social">&#62226;</div>
+    <div class="social">&#62214;</div>
+<br><br><br></div>
             <script src="js/jquery-2.1.1.js"></script> 
             <script src="js/main.js"></script> <!-- Resource jQuery --> 
     </body>

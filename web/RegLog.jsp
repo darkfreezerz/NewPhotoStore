@@ -31,6 +31,12 @@
         <link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
         <link rel="stylesheet" href="css/demo.css">
+         <style type="text/css" media="all">
+            @import url("css/reset.css");
+            @import url("css/style.css");
+            @import url("http://weloveiconfonts.com/api/?family=entypo");
+            @import url("css/button.css");
+        </style>
         <script src="js/modernizr.js"></script>
     </head>
     <body>
@@ -232,7 +238,15 @@
                 </div>
             </section>
         </div>
-       
+       <br><br><br><div class="wrapper">
+    <div class="social">&#62220;</div>
+    <div class="social">&#62217;</div>
+    <div class="social">&#62223;</div>
+    <div class="social">&#62232;</div>
+    <div class="social">&#62235;</div>
+    <div class="social">&#62226;</div>
+    <div class="social">&#62214;</div>
+<br><br><br></div>
         <script src="js/jquery-2.1.1.js"></script> 
         <script src="js/main.js"></script>
     </body>

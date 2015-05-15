@@ -151,7 +151,7 @@
 
                                                                         <div class="span-5 last" align="left" style="margin-left: 300px">
 
-                                                                            <p style="font-size: 24px" >Description <%= product.getDescription()%> </p><br>
+                                                                            <p style="font-size: 24px" >Description : <%= product.getDescription()%> </p><br>
                                                                                 <p style="font-size: 24px" >Category: <%=product.getCateName()%></p><br>
 
                                                                                     <p style="font-size: 24px" >Release Date : <%= product.getDate()%></p><br>

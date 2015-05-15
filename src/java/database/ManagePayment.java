@@ -135,10 +135,25 @@ public class ManagePayment {
          ManagePayment manage = new ManagePayment();
         try {
             for (Product product : cart ) {
-                PreparedStatement add = conn.prepareStatement("update Product set P_SaleCount= P_SaleCount+1 where P_ID=1;");
+                PreparedStatement add = conn.prepareStatement("update Product set P_SaleCount= P_SaleCount+1 where P_ID=?;");
+                PreparedStatement plus = conn.prepareStatement("update Merchant set M_SaleAmount= M_SaleAmount+? where M_ID=?;");
                 add.setInt(1,Integer.parseInt(product.getId()));
                 add.executeUpdate();
+                plus.setDouble(1,product.getPrice());
+                plus.setInt(2, Integer.parseInt(product.getmID()));
+                plus.executeUpdate();
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(ManagePayment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void addBuyamount(double buysum,String uid){
+        try {
+            PreparedStatement add = conn.prepareStatement("update Customer set C_BuyAmount = C_BuyAmount+? where C_ID =?;");
+            add.setDouble(1, buysum);
+            add.setInt(1, Integer.parseInt(uid));
+            add.executeQuery();
         } catch (SQLException ex) {
             Logger.getLogger(ManagePayment.class.getName()).log(Level.SEVERE, null, ex);
         }
