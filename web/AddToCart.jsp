@@ -161,7 +161,7 @@
 
                                                                                         </div><br>
                                                                                             <% if (session.getAttribute("role").equals("customer") && mp.CheckProductHave(product.getId(), (String) session.getAttribute("role"))) {%>
-                                                                                            <a href="addtocart.do?pointer=<%= products.indexOf(product)%>" class="myButton">Add to Cart</a>
+                                                                                            <a href="addtocart.do?pointer=<%= products.indexOf(product)%>&sflag=<%=request.getParameter("sflag")%>" class="myButton">Add to Cart</a>
                                                                                             <% } else {%>
 
                                                                                             <% }%>

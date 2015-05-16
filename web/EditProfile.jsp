@@ -26,10 +26,9 @@
         <link href="css/SearchBox.css" rel="stylesheet" type="text/css">
         <!-- Resource style -->
          <style type="text/css" media="all">
-            @import url("css/reset.css");
-            @import url("css/style.css");
+            
             @import url("http://weloveiconfonts.com/api/?family=entypo");
-            @import url("css/button.css");
+            
         </style>
         <script src="js/modernizr.js"></script><!-- Modernizr -->
     </head>

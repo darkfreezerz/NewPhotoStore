@@ -152,8 +152,8 @@ public class ManagePayment {
         try {
             PreparedStatement add = conn.prepareStatement("update Customer set C_BuyAmount = C_BuyAmount+? where C_ID =?;");
             add.setDouble(1, buysum);
-            add.setInt(1, Integer.parseInt(uid));
-            add.executeQuery();
+            add.setInt(2, Integer.parseInt(uid));
+            add.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ManagePayment.class.getName()).log(Level.SEVERE, null, ex);
         }

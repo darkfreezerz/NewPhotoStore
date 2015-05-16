@@ -18,10 +18,9 @@
 
         <script src="js/modernizr.js"></script> <!-- Modernizr -->
         <style type="text/css" media="all">
-            @import url("css/reset.css");
-            @import url("css/style.css");
+            
             @import url("http://weloveiconfonts.com/api/?family=entypo");
-            @import url("css/button.css");
+          
         </style>
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700' rel='stylesheet' type='text/css'>
             <link rel="stylesheet" href="css/reset.css">

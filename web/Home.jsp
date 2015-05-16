@@ -25,10 +25,9 @@
         <!-- Resource style -->
         <script src="js/modernizr.js"></script><!-- Modernizr -->
         <style type="text/css" media="all">
-            @import url("css/reset.css");
-            @import url("css/style.css");
+            
             @import url("http://weloveiconfonts.com/api/?family=entypo");
-            @import url("css/button.css");
+            
         </style>
 
         <title>Full-Screen Pop-Out Navigation</title>

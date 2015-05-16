@@ -29,10 +29,9 @@
         <link rel="stylesheet" type="text/css" href="css/stylelogin.css" />
         <link rel="stylesheet" type="text/css" href="css/table.css" />
          <style type="text/css" media="all">
-            @import url("css/reset.css");
-            @import url("css/style.css");
+           
             @import url("http://weloveiconfonts.com/api/?family=entypo");
-            @import url("css/button.css");
+           
         </style>
         <script src="js/modernizr.js"></script>
     </head>

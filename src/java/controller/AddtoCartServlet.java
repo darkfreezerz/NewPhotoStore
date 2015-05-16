@@ -41,7 +41,13 @@ public class AddtoCartServlet extends HttpServlet {
             HttpSession session = request.getSession(true);
             List<Product> products = new LinkedList<Product>();
 
-            products = (List) session.getAttribute("searchKeyWord");
+            if (request.getParameter("sflag").equals("top")) {
+                products = (List) session.getAttribute("searchTop");
+            } else if (request.getParameter("sflag").equals("new")) {
+                products = (List) session.getAttribute("searchNew");
+            } else {
+                products = (List) session.getAttribute("searchKeyWord");
+            }
 
             Product product = products.get(Integer.parseInt(index));
 
